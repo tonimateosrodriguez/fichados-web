@@ -55,7 +55,7 @@ const HeroSection = () => {
 
             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 pt-2 w-full sm:w-auto">
               <a href="https://app.fichados.es/registro-empresa" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto text-base px-8 py-6">
+                <Button size="lg" className="w-full sm:w-auto text-base py-3">
                   Cumple la ley hoy
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -63,7 +63,7 @@ const HeroSection = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full sm:w-auto text-base px-8 py-6"
+                className="w-full sm:w-auto text-base py-3"
                 onClick={handlePlayClick}
               >
                 <Play className="mr-2 h-5 w-5" />

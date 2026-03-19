@@ -101,7 +101,7 @@ const FAQSection = () => {
           <a href="https://app.fichados.es/registro-empresa">
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+              className="text-lg font-semibold py-3"
             >
               <Shield className="mr-2 h-5 w-5" />
               Quiero dormir tranquilo
