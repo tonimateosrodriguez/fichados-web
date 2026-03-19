@@ -10,14 +10,17 @@ interface LandingHeaderProps {
   showSectionLinks?: boolean;
 }
 
-const navItems = [
+const sectionItems = [
   { href: "#demo-video", label: "Demo" },
-  { href: "#riesgos", label: "Riesgos" },
   { href: "#como-funciona", label: "Cómo funciona" },
-  { href: "#como-empezar", label: "Cómo empezar" },
   { href: "#pricing", label: "Precios" },
-  { href: "#testimonios", label: "Testimonios" },
   { href: "#faq", label: "FAQ" },
+];
+
+const pageItems = [
+  { href: "/herramientas/calculadora-horas-extras", label: "Herramientas" },
+  { href: "/recursos/plantilla-control-horario", label: "Recursos" },
+  { href: "/blog", label: "Blog" },
 ];
 
 const LandingHeader = ({ showSectionLinks = true }: LandingHeaderProps) => {
@@ -33,7 +36,7 @@ const LandingHeader = ({ showSectionLinks = true }: LandingHeaderProps) => {
 
           {/* Desktop Navigation Menu */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
+            {sectionItems.map((item) => (
               <a
                 key={item.href}
                 href={`${sectionPrefix}${item.href}`}
@@ -41,6 +44,15 @@ const LandingHeader = ({ showSectionLinks = true }: LandingHeaderProps) => {
               >
                 {item.label}
               </a>
+            ))}
+            {pageItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {item.label}
+              </Link>
             ))}
           </nav>
 
@@ -68,12 +80,25 @@ const LandingHeader = ({ showSectionLinks = true }: LandingHeaderProps) => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] sm:w-[350px]">
                 <nav className="flex flex-col gap-4 mt-8">
-                  {navItems.map((item) => (
+                  {sectionItems.map((item) => (
                     <SheetClose
                       key={item.href}
                       render={
                         <a
                           href={`${sectionPrefix}${item.href}`}
+                          className="px-4 py-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+                        />
+                      }
+                    >
+                      {item.label}
+                    </SheetClose>
+                  ))}
+                  {pageItems.map((item) => (
+                    <SheetClose
+                      key={item.href}
+                      render={
+                        <Link
+                          href={item.href}
                           className="px-4 py-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
                         />
                       }

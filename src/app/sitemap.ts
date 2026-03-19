@@ -16,29 +16,24 @@ const articleSlugs = [
 ]
 
 const sectorSlugs = [
-  'hosteleria', 'construccion', 'comercio', 'transporte', 'industria',
-  'educacion', 'sanidad', 'tecnologia', 'agricultura', 'turismo',
-  'limpieza', 'seguridad', 'logistica', 'alimentacion', 'peluqueria',
-  'gimnasios', 'veterinaria', 'farmacias', 'dentistas', 'abogados',
-  'consultoras', 'inmobiliarias', 'asesorias', 'restaurantes', 'hoteles',
-]
-
-const citySlugs = [
-  'madrid', 'barcelona', 'valencia', 'sevilla', 'zaragoza', 'malaga',
-  'murcia', 'palma-de-mallorca', 'las-palmas', 'bilbao', 'alicante',
-  'cordoba', 'valladolid', 'vigo', 'gijon', 'hospitalet', 'vitoria',
-  'la-coruna', 'granada', 'elche', 'oviedo', 'santa-cruz-de-tenerife',
-  'pamplona', 'almeria', 'san-sebastian', 'santander', 'castellon',
-  'burgos', 'albacete', 'salamanca', 'logrono', 'huelva', 'badajoz',
-  'tarragona', 'lleida', 'leon', 'cadiz', 'jaen', 'ourense', 'lugo',
-  'girona', 'caceres', 'guadalajara', 'toledo', 'pontevedra', 'palencia',
-  'ciudad-real', 'zamora', 'avila', 'cuenca', 'huesca', 'segovia',
-  'soria', 'teruel',
+  'hosteleria', 'construccion', 'sanidad', 'educacion',
+  'administracion-publica', 'comercio', 'autonomos',
 ]
 
 const competitorSlugs = [
-  'factorial', 'sesame', 'bizneo', 'personio', 'a3equipo',
-  'sage', 'timify', 'clockify', 'toggl',
+  'factorial', 'sesame', 'bizneo', 'personio', 'tramitapp', 'kenjo',
+]
+
+const herramientaSlugs = [
+  'calculadora-horas-extras', 'calculadora-horas-trabajadas',
+  'calculadora-jornada-laboral', 'calculadora-multas-fichaje',
+  'calculadora-coste-fichaje',
+]
+
+const recursoSlugs = [
+  'plantilla-control-horario', 'modelo-registro-jornada',
+  'plantilla-registro-horario-trabajadores', 'plantilla-turnos-trabajo',
+  'plantilla-cuadrante-horario',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -97,15 +92,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  const cityPages: MetadataRoute.Sitemap = citySlugs.map((slug) => ({
-    url: `${BASE_URL}/ciudades/${slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }))
-
   const competitorPages: MetadataRoute.Sitemap = competitorSlugs.map((slug) => ({
     url: `${BASE_URL}/comparar/fichados-vs-${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  const herramientaPages: MetadataRoute.Sitemap = herramientaSlugs.map((slug) => ({
+    url: `${BASE_URL}/herramientas/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
+  const recursoPages: MetadataRoute.Sitemap = recursoSlugs.map((slug) => ({
+    url: `${BASE_URL}/recursos/${slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
@@ -115,7 +117,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...articlePages,
     ...sectorPages,
-    ...cityPages,
     ...competitorPages,
+    ...herramientaPages,
+    ...recursoPages,
   ]
 }
