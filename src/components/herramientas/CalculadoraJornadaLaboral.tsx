@@ -14,7 +14,7 @@ export default function CalculadoraJornadaLaboral() {
     tipo === "completa" ? 40 : tipo === "reducida" ? 37.5 : horasParcial;
   const horasDiarias = horasSemanales / 5;
   const horasMensuales = horasDiarias * 22;
-  // 52 semanas - 14 festivos (en dias) ajustados
+  // 52 semanas - 14 festivos (en días) ajustados
   const diasLaborables = 220;
   const horasAnuales = horasDiarias * diasLaborables;
 
@@ -60,8 +60,8 @@ export default function CalculadoraJornadaLaboral() {
         {tipo === "reducida" && (
           <div className="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-3">
             <p className="text-sm text-blue-800">
-              La reforma de las 37,5 horas semanales esta prevista para 2026.
-              Supondra trabajar unas 107 horas menos al año sin reduccion
+              La reforma de las 37,5 horas semanales está prevista para 2026.
+              Supondrá trabajar unas 107 horas menos al año sin reducción
               salarial.
             </p>
           </div>
@@ -77,7 +77,7 @@ export default function CalculadoraJornadaLaboral() {
               </p>
             </div>
             <div className="rounded-lg bg-white p-4 shadow-sm">
-              <p className="text-sm text-muted-foreground">Horas / dia</p>
+              <p className="text-sm text-muted-foreground">Horas / día</p>
               <p className="text-2xl font-bold text-primary">
                 {horasDiarias.toFixed(1)}h
               </p>
@@ -90,7 +90,7 @@ export default function CalculadoraJornadaLaboral() {
             </div>
             <div className="rounded-lg bg-white p-4 shadow-sm">
               <p className="text-sm text-muted-foreground">
-                Horas / año (~{diasLaborables} dias lab.)
+                Horas / año (~{diasLaborables} días lab.)
               </p>
               <p className="text-2xl font-bold text-primary">
                 {horasAnuales.toFixed(0)}h

@@ -127,9 +127,9 @@ export default async function RecursoPage({ params }: PageProps) {
         }}
       />
 
-      <LandingHeader />
+      <LandingHeader showSectionLinks={false} />
 
-      <main className="flex-1">
+      <main className="flex-1 pt-20 sm:pt-24">
         {/* Hero */}
         <section className="bg-gradient-to-b from-primary/5 to-background py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 text-center">
@@ -206,20 +206,20 @@ export default async function RecursoPage({ params }: PageProps) {
         </section>
 
         {/* FAQ */}
-        <section className="py-16 sm:py-20">
+        <section className="bg-muted/30 py-16 sm:py-20">
           <div className="mx-auto max-w-3xl px-4">
             <h2 className="text-center text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               Preguntas frecuentes
             </h2>
             <div className="mt-10">
-              <Accordion>
+              <Accordion className="space-y-4">
                 {recurso.faq.map((item, i) => (
-                  <AccordionItem key={i} value={`faq-${i}`}>
-                    <AccordionTrigger className="text-left text-base font-medium">
+                  <AccordionItem key={i} value={`faq-${i}`} className="bg-card rounded-lg border border-border px-6">
+                    <AccordionTrigger className="text-left text-foreground hover:no-underline py-5">
                       {item.question}
                     </AccordionTrigger>
-                    <AccordionContent>
-                      <p className="text-muted-foreground">{item.answer}</p>
+                    <AccordionContent className="text-muted-foreground pb-5">
+                      {item.answer}
                     </AccordionContent>
                   </AccordionItem>
                 ))}

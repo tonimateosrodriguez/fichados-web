@@ -32,7 +32,7 @@ export default function CalculadoraMultasFichaje() {
       <CardContent>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label className="text-sm font-medium">Numero de empleados</label>
+            <label className="text-sm font-medium">Número de empleados</label>
             <input
               type="number"
               min={1}
@@ -43,7 +43,7 @@ export default function CalculadoraMultasFichaje() {
             />
           </div>
           <div>
-            <label className="text-sm font-medium">Tipo de infraccion</label>
+            <label className="text-sm font-medium">Tipo de infracción</label>
             <select
               value={tipo}
               onChange={(e) => setTipo(e.target.value as TipoInfraccion)}
@@ -64,13 +64,13 @@ export default function CalculadoraMultasFichaje() {
           </h3>
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="rounded-lg bg-white p-4 shadow-sm">
-              <p className="text-sm text-muted-foreground">Multa minima total</p>
+              <p className="text-sm text-muted-foreground">Multa mínima total</p>
               <p className="text-2xl font-bold text-red-600">
                 {multaMin.toLocaleString("es-ES")} euros
               </p>
             </div>
             <div className="rounded-lg bg-white p-4 shadow-sm">
-              <p className="text-sm text-muted-foreground">Multa maxima total</p>
+              <p className="text-sm text-muted-foreground">Multa máxima total</p>
               <p className="text-2xl font-bold text-red-600">
                 {multaMax.toLocaleString("es-ES")} euros
               </p>
@@ -79,12 +79,12 @@ export default function CalculadoraMultasFichaje() {
 
           <div className="mt-4 rounded-lg border border-green-200 bg-green-50 p-4">
             <p className="text-sm font-medium text-green-800">
-              Fichados te costaria solo {costeFichados} euros/mes vs una multa
+              Fichados te costaría solo {costeFichados} euros/mes vs una multa
               de hasta {multaMax.toLocaleString("es-ES")} euros
             </p>
             <p className="mt-1 text-xs text-green-700">
               Es decir, {Math.round(multaMax / costeFichados)} meses de Fichados
-              equivalen a la multa maxima. Evita el riesgo desde hoy.
+              equivalen a la multa máxima. Evita el riesgo desde hoy.
             </p>
           </div>
         </div>

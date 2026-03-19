@@ -96,7 +96,7 @@ export default function CalculadoraHorasExtras() {
             </div>
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
-            * Calculo basado en el art. 35 del Estatuto de los Trabajadores:
+            * Cálculo basado en el art. 35 del Estatuto de los Trabajadores:
             recargo del 25% para las primeras 80h/año y del 50% para el resto.
           </p>
         </div>

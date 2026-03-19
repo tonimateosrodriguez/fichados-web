@@ -59,7 +59,7 @@ export default function CalculadoraCosteFichaje() {
       <CardContent>
         <div>
           <label className="text-sm font-medium">
-            Numero de empleados: {empleados}
+            Número de empleados: {empleados}
           </label>
           <input
             type="range"
@@ -128,7 +128,7 @@ export default function CalculadoraCosteFichaje() {
                 Ahorra hasta {ahorroMax.toFixed(0)} euros/año con Fichados
               </p>
               <p className="mt-1 text-sm text-green-700">
-                Comparado con la opcion mas cara del mercado
+                Comparado con la opción más cara del mercado
               </p>
             </div>
           )}

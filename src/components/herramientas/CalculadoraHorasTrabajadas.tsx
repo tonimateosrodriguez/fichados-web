@@ -69,7 +69,7 @@ export default function CalculadoraHorasTrabajadas() {
           <h3 className="mb-4 text-lg font-semibold">Resultado</h3>
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-lg bg-white p-4 shadow-sm">
-              <p className="text-sm text-muted-foreground">Horas netas / dia</p>
+              <p className="text-sm text-muted-foreground">Horas netas / día</p>
               <p className="text-2xl font-bold text-primary">
                 {formatHoras(horasNetas)}
               </p>
@@ -98,7 +98,7 @@ export default function CalculadoraHorasTrabajadas() {
             href="https://app.fichados.es/registro-empresa"
             className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Registra horas automaticamente con Fichados
+            Registra horas automáticamente con Fichados
             <ChevronRight className="size-4" />
           </a>
         </div>
