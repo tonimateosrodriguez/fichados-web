@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
   CheckCircle2,
-  Download,
   ChevronRight,
   FileSpreadsheet,
   Clock,
@@ -14,6 +13,7 @@ import {
 import { recursos, getRecursoBySlug } from "@/data/recursos";
 import LandingHeader from "@/components/landing/LandingHeader";
 import LandingFooter from "@/components/landing/LandingFooter";
+import DescargarRecursoForm from "@/components/recursos/DescargarRecursoForm";
 import {
   Accordion,
   AccordionItem,
@@ -143,15 +143,11 @@ export default async function RecursoPage({ params }: PageProps) {
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
               {recurso.intro}
             </p>
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <a
-                href={`/recursos/${recurso.fileName}`}
-                download
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                <Download className="size-4" />
-                Descargar {fileLabel} gratis
-              </a>
+            <div className="mt-8">
+              <DescargarRecursoForm
+                recursoSlug={recurso.slug}
+                fileLabel={fileLabel}
+              />
             </div>
           </div>
         </section>
@@ -166,10 +162,10 @@ export default async function RecursoPage({ params }: PageProps) {
               {recurso.features.map((feature, i) => (
                 <div
                   key={i}
-                  className="flex gap-3 rounded-xl border border-green-200 bg-green-50 p-4"
+                  className="flex gap-3 rounded-xl border border-border bg-card p-4"
                 >
                   <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-green-600" />
-                  <p className="text-sm leading-relaxed text-green-900">
+                  <p className="text-sm leading-relaxed text-foreground">
                     {feature}
                   </p>
                 </div>
