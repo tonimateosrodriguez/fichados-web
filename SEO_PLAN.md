@@ -172,6 +172,12 @@ Donde Factor_Intención:
 
 > Análisis de 12 CSVs de competidores exportados de SE Ranking.
 > 275.792 filas brutas → 26.694 keywords únicas relevantes tras filtrar y deduplicar.
+>
+> **Doble fuente de volumen (añadido 20 marzo 2026):**
+> Las tablas de esta sección incluyen dos columnas de volumen: **Vol. SR** (SE Ranking) y **Vol. AH** (Ahrefs).
+> Se consultaron las 66 top keywords en Ahrefs Keywords Explorer (España). 9 keywords no están indexadas
+> en la base de datos de Ahrefs (marcadas como "n/i"). Los volúmenes del resumen global (sección 3.1) siguen
+> basados en SE Ranking, ya que solo se cruzaron las top keywords, no las 26.694 completas.
 
 ### 3.1 Resumen global
 
@@ -195,34 +201,38 @@ Donde Factor_Intención:
 
 ### 3.2 Top keywords transaccionales (las que convierten)
 
-| Keyword | Vol. | KD | CPC | Tipo página |
-|---------|------|-----|------|-------------|
-| app control horario | 480 | 12 | 2,29€ | Landing `/` |
-| software rrhh | 480 | 11 | 6,45€ | Landing `/` |
-| mejor app control horario gratis | 390 | 10 | — | Blog comparativa |
-| sistema de fichajes | 390 | 10 | 4,07€ | Landing `/` |
-| programa control horario | 390 | 12 | 2,71€ | Landing `/` |
-| software de control horario | 390 | 12 | 3,14€ | Landing `/` |
-| sistema de fichaje para empresas | 320 | 12 | 2,37€ | Landing `/` |
-| programa fichaje | 260 | 10 | 2,62€ | Landing `/` |
-| software de fichaje | 260 | 12 | 3,14€ | Landing `/` |
-| app fichaje empleados | 210 | 10 | — | Landing `/` |
-| control horario digital | 170 | 8 | 1,89€ | Landing `/` |
-| software registro jornada | 170 | 10 | 2,37€ | Landing `/` |
-| fichaje online | 170 | 12 | — | Landing `/` |
-| reloj fichaje online | 140 | 8 | — | Landing `/` |
-| app para fichar en el trabajo | 110 | 10 | — | Landing `/` |
+> Vol. SR = SE Ranking | Vol. AH = Ahrefs (marzo 2026)
+
+| Keyword | Vol. SR | Vol. AH | KD | CPC | Tipo página |
+|---------|---------|---------|-----|------|-------------|
+| app control horario | 480 | 350 | 12 | 2,29€ | Landing `/` |
+| software rrhh | 480 | 500 | 11 | 6,45€ | Landing `/` |
+| mejor app control horario gratis | 390 | 350 | 10 | — | Blog comparativa |
+| sistema de fichajes | 390 | 80 | 10 | 4,07€ | Landing `/` |
+| programa control horario | 390 | 100 | 12 | 2,71€ | Landing `/` |
+| software de control horario | 390 | 400 | 12 | 3,14€ | Landing `/` |
+| sistema de fichaje para empresas | 320 | 200 | 12 | 2,37€ | Landing `/` |
+| programa fichaje | 260 | 10 | 10 | 2,62€ | Landing `/` |
+| software de fichaje | 260 | 40 | 12 | 3,14€ | Landing `/` |
+| app fichaje empleados | 210 | 0–10 | 10 | — | Landing `/` |
+| control horario digital | 170 | 1.100 | 8 | 1,89€ | Landing `/` |
+| software registro jornada | 170 | 30 | 10 | 2,37€ | Landing `/` |
+| fichaje online | 170 | 100 | 12 | — | Landing `/` |
+| reloj fichaje online | 140 | n/i | 8 | — | Landing `/` |
+| app para fichar en el trabajo | 110 | 350 | 10 | — | Landing `/` |
 
 ### 3.3 Comparativas por marca competidora
 
-| Marca | KWs ranking | Vol. Total | Top keyword (vol) | **Crear `/comparar/`?** |
-|---|---|---|---|---|
-| **Factorial** | 17 | 1.510 | "factorial fichaje" (480) | ✅ SÍ — volumen alto |
-| **Sesame** | 25 | 2.030 | "sesame control horario" (480) | ✅ SÍ — volumen alto |
-| **Bizneo** | 41 | 29.480 | "bizneo" (27.100) | ✅ SÍ — marca gigante |
-| **Personio** | 15 | 11.200 | "personio" (10.800) | ✅ SÍ — mucho brand search |
-| **TramitApp** | 7 | 11.030 | "tramitapp" (10.800) | ✅ SÍ — mucho brand search |
-| **Kenjo** | 13 | 4.170 | "kenjo" (3.600) | ✅ SÍ — brand search decente |
+> Vol. SR = SE Ranking | Vol. AH = Ahrefs (marzo 2026)
+
+| Marca | KWs ranking | Vol. Total | Top keyword | Vol. SR | Vol. AH | **Crear `/comparar/`?** |
+|---|---|---|---|---|---|---|
+| **Factorial** | 17 | 1.510 | "factorial fichaje" | 480 | 350 | ✅ SÍ — volumen alto |
+| **Sesame** | 25 | 2.030 | "sesame control horario" | 480 | 450 | ✅ SÍ — volumen alto |
+| **Bizneo** | 41 | 29.480 | "bizneo" | 27.100 | 30.000 | ✅ SÍ — marca gigante |
+| **Personio** | 15 | 11.200 | "personio" | 10.800 | 11.000 | ✅ SÍ — mucho brand search |
+| **TramitApp** | 7 | 11.030 | "tramitapp" | 10.800 | 11.000 | ✅ SÍ — mucho brand search |
+| **Kenjo** | 13 | 4.170 | "kenjo" | 3.600 | 3.500 | ✅ SÍ — brand search decente |
 | **Jornada (jorn-ada)** | 1.792 | 156.300 | "jornada laboral" (27.800) | ⚠️ No es competidor directo |
 | **OpenHR** | — | — | — | ❌ NO — sin volumen |
 | **Kronjop** | — | — | — | ❌ NO — sin volumen |
@@ -234,19 +244,21 @@ Donde Factor_Intención:
 
 ### 3.4 Sectores con volumen real
 
-| Sector | KWs | Vol. Total | Top keyword | **Crear `/sectores/`?** |
-|---|---|---|---|---|
-| **Sanidad/salud** | 201 | 7.490 | "control horario sanitarios" | ✅ SÍ |
-| **Construcción** | 134 | 5.870 | "control horario obra" | ✅ SÍ |
-| **Educación** | 55 | 3.690 | "control horario centros educativos" | ✅ SÍ |
-| **Admin. pública** | 49 | 1.470 | "fichaje funcionarios" | ✅ SÍ |
-| **Autónomos** | 32 | 1.410 | "fichaje autónomos" | ✅ SÍ |
-| **Hostelería** | 41 | 1.080 | "control horario hostelería" | ✅ SÍ |
-| **Comercio/Retail** | ~30 | ~800 | "control horario tiendas" | ✅ SÍ |
-| **Transporte** | ~25 | ~600 | "control horario transporte" | ⚠️ Evaluar |
-| **Industria/fábricas** | ~20 | ~500 | "control horario fábrica" | ⚠️ Evaluar |
-| **Limpieza** | ~15 | ~300 | "fichaje limpieza" | ❌ NO — poco volumen |
-| **Agricultura** | ~10 | ~150 | — | ❌ NO |
+> Vol. SR = SE Ranking | Vol. AH = Ahrefs (marzo 2026). "n/i" = no indexada en Ahrefs.
+
+| Sector | KWs | Vol. Total | Top keyword | Vol. AH top KW | **Crear `/sectores/`?** |
+|---|---|---|---|---|---|
+| **Sanidad/salud** | 201 | 7.490 | "control horario sanitarios" | n/i | ✅ SÍ |
+| **Construcción** | 134 | 5.870 | "control horario obra" | n/i | ✅ SÍ |
+| **Educación** | 55 | 3.690 | "control horario centros educativos" | n/i | ✅ SÍ |
+| **Admin. pública** | 49 | 1.470 | "fichaje funcionarios" | 0–10 | ✅ SÍ |
+| **Autónomos** | 32 | 1.410 | "fichaje autónomos" | n/i | ✅ SÍ |
+| **Hostelería** | 41 | 1.080 | "control horario hostelería" | 10 | ✅ SÍ |
+| **Comercio/Retail** | ~30 | ~800 | "control horario tiendas" | n/i | ✅ SÍ |
+| **Transporte** | ~25 | ~600 | "control horario transporte" | — | ⚠️ Evaluar |
+| **Industria/fábricas** | ~20 | ~500 | "control horario fábrica" | — | ⚠️ Evaluar |
+| **Limpieza** | ~15 | ~300 | "fichaje limpieza" | — | ❌ NO — poco volumen |
+| **Agricultura** | ~10 | ~150 | — | — | ❌ NO |
 
 **DECISIÓN: Crear 7-9 sectores** (los 7 con ✅ seguro, evaluar transporte e industria)
 
@@ -266,17 +278,19 @@ Donde Factor_Intención:
 
 ### 3.6 Plantillas y recursos (lead magnets)
 
-| Keyword | Vol. | KD | CPC | Tipo |
-|---------|------|-----|------|------|
-| plantilla control horario | 320 | 5 | — | Descargable Excel/PDF |
-| modelo registro jornada | 260 | 3 | — | Descargable |
-| plantilla registro horario trabajadores | 210 | 4 | — | Descargable |
-| plantilla horario trabajo | 170 | 6 | — | Descargable |
-| plantilla turnos de trabajo | 170 | 5 | — | Descargable |
-| plantilla excel control horario | 140 | 4 | — | Descargable |
-| modelo de registro de jornada laboral | 110 | 3 | — | Descargable |
-| plantilla cuadrante horario | 110 | 6 | — | Descargable |
-| plantilla control de horas trabajadas | 90 | 4 | — | Descargable |
+> Vol. SR = SE Ranking | Vol. AH = Ahrefs (marzo 2026). "n/i" = no indexada en Ahrefs.
+
+| Keyword | Vol. SR | Vol. AH | KD | CPC | Tipo |
+|---------|---------|---------|-----|------|------|
+| plantilla control horario | 320 | 80 | 5 | — | Descargable Excel/PDF |
+| modelo registro jornada | 260 | 20 | 3 | — | Descargable |
+| plantilla registro horario trabajadores | 210 | 30 | 4 | — | Descargable |
+| plantilla horario trabajo | 170 | 50 | 6 | — | Descargable |
+| plantilla turnos de trabajo | 170 | 40 | 5 | — | Descargable |
+| plantilla excel control horario | 140 | 20 | 4 | — | Descargable |
+| modelo de registro de jornada laboral | 110 | 10 | 3 | — | Descargable |
+| plantilla cuadrante horario | 110 | n/i | 6 | — | Descargable |
+| plantilla control de horas trabajadas | 90 | 0–10 | 4 | — | Descargable |
 
 **DECISIÓN: SÍ crear `/recursos/`** — 74 keywords con KD ultra-bajo (3-6). Son lead magnets perfectos: usuario descarga plantilla → le pedimos email → nurturing → conversión a Fichados.
 
@@ -289,14 +303,16 @@ Donde Factor_Intención:
 
 ### 3.7 Herramientas interactivas
 
-| Keyword | Vol. | KD | CPC |
-|---------|------|-----|------|
-| calculadora horas extras | 480 | 3 | — |
-| calculadora horas trabajadas | 390 | 6 | — |
-| calculadora jornada laboral | 210 | 5 | — |
-| calculadora salario neto | 1.900 | 10 | — |
-| simulador nómina | 480 | 8 | — |
-| calculadora vacaciones | 320 | 5 | — |
+> Vol. SR = SE Ranking | Vol. AH = Ahrefs (marzo 2026)
+
+| Keyword | Vol. SR | Vol. AH | KD | CPC |
+|---------|---------|---------|-----|------|
+| calculadora horas extras | 480 | 60 | 3 | — |
+| calculadora horas trabajadas | 390 | 600 | 6 | — |
+| calculadora jornada laboral | 210 | 70 | 5 | — |
+| calculadora salario neto | 1.900 | 23.000 | 10 | — |
+| simulador nómina | 480 | 30 | 8 | — |
+| calculadora vacaciones | 320 | 1.000 | 5 | — |
 
 **DECISIÓN: SÍ crear `/herramientas/`** — Volumen MUY alto (480-1.900) con KD bajísimo (3-10). Las calculadoras generan tráfico recurrente, backlinks naturales y engagement altísimo.
 
@@ -309,26 +325,28 @@ Donde Factor_Intención:
 
 ### 3.8 Blog informacional — Top oportunidades
 
-| Keyword | Vol. | KD | Tipo artículo |
-|---------|------|-----|---------------|
-| jornada laboral | 27.800 | 24 | Pilar (mega-guía) |
-| horas extra | 6.600 | 18 | Pilar legal |
-| control horario | 2.900 | 12 | Pilar producto |
-| registro de jornada | 1.300 | 8 | Guía legal |
-| horario laboral en españa | 720 | 10 | Legal/informacional |
-| ley de fichaje | 480 | 8 | Legal urgente |
-| fichaje obligatorio | 390 | 6 | Legal urgente |
-| sanciones fichaje | 260 | 5 | Legal urgente |
-| inspección de trabajo fichaje | 170 | 4 | Legal |
-| control horario obligatorio | 170 | 6 | Legal |
-| reducción jornada laboral 2026 | 3.600 | 15 | Trending legal |
-| teletrabajo normativa | 480 | 10 | Blog |
-| absentismo laboral | 1.300 | 12 | Blog RRHH |
-| turnos de trabajo | 2.400 | 8 | Blog RRHH |
-| cuadrante de trabajo | 1.900 | 6 | Blog/herramienta |
-| convenio hostelería | 1.600 | 10 | Blog sector |
-| fichaje biométrico | 210 | 6 | Blog producto |
-| fichaje digital | 170 | 5 | Blog producto |
+> Vol. SR = SE Ranking | Vol. AH = Ahrefs (marzo 2026). "n/i" = no indexada en Ahrefs.
+
+| Keyword | Vol. SR | Vol. AH | KD | Tipo artículo |
+|---------|---------|---------|-----|---------------|
+| jornada laboral | 27.800 | 27.000 | 24 | Pilar (mega-guía) |
+| horas extra | 6.600 | 200 | 18 | Pilar legal |
+| control horario | 2.900 | 5.000 | 12 | Pilar producto |
+| registro de jornada | 1.300 | 700 | 8 | Guía legal |
+| horario laboral en españa | 720 | 60 | 10 | Legal/informacional |
+| ley de fichaje | 480 | 20 | 8 | Legal urgente |
+| fichaje obligatorio | 390 | 80 | 6 | Legal urgente |
+| sanciones fichaje | 260 | n/i | 5 | Legal urgente |
+| inspección de trabajo fichaje | 170 | n/i | 4 | Legal |
+| control horario obligatorio | 170 | 90 | 6 | Legal |
+| reducción jornada laboral 2026 | 3.600 | 150 | 15 | Trending legal |
+| teletrabajo normativa | 480 | 30 | 10 | Blog |
+| absentismo laboral | 1.300 | 3.200 | 12 | Blog RRHH |
+| turnos de trabajo | 2.400 | 250 | 8 | Blog RRHH |
+| cuadrante de trabajo | 1.900 | 400 | 6 | Blog/herramienta |
+| convenio hostelería | 1.600 | 60 | 10 | Blog sector |
+| fichaje biométrico | 210 | 10 | 6 | Blog producto |
+| fichaje digital | 170 | 350 | 5 | Blog producto |
 
 **191 keywords sweet spot** para blog — suficiente contenido para 2+ años de publicación.
 
@@ -348,18 +366,20 @@ La categoría más grande (18.176 KWs, 1.356 sweet spot) incluye:
 
 ### 3.10 Keywords high-CPC (>2€) — Oportunidades monetizables
 
-| Keyword | Vol. | KD | CPC |
-|---------|------|-----|------|
-| software evaluación del desempeño | 210 | 11 | 9,53€ |
-| software gestión personal | 170 | 27 | 9,32€ |
-| software control de producción | 90 | 12 | 7,27€ |
-| software rrhh | 480 | 11 | 6,45€ |
-| software de rrhh | 260 | 30 | 4,63€ |
-| sistema de fichaje | 390 | 10 | 4,07€ |
-| software de control horario | 390 | 12 | 3,14€ |
-| programa control horario | 390 | 12 | 2,71€ |
-| sistema de fichaje para empresas | 320 | 12 | 2,37€ |
-| app control horario | 480 | 12 | 2,29€ |
+> Vol. SR = SE Ranking | Vol. AH = Ahrefs (marzo 2026). "n/i" = no indexada en Ahrefs.
+
+| Keyword | Vol. SR | Vol. AH | KD | CPC |
+|---------|---------|---------|-----|------|
+| software evaluación del desempeño | 210 | 150 | 11 | 9,53€ |
+| software gestión personal | 170 | n/i | 27 | 9,32€ |
+| software control de producción | 90 | 20 | 12 | 7,27€ |
+| software rrhh | 480 | 500 | 11 | 6,45€ |
+| software de rrhh | 260 | 200 | 30 | 4,63€ |
+| sistema de fichaje | 390 | 200 | 10 | 4,07€ |
+| software de control horario | 390 | 400 | 12 | 3,14€ |
+| programa control horario | 390 | 100 | 12 | 2,71€ |
+| sistema de fichaje para empresas | 320 | 200 | 12 | 2,37€ |
+| app control horario | 480 | 350 | 12 | 2,29€ |
 
 Estas keywords justifican inversión premium en contenido (artículos largos, herramientas, comparativas detalladas).
 
