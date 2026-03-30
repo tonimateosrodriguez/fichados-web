@@ -18,9 +18,7 @@ const sectionItems = [
   { href: "#faq", label: "FAQ" },
 ];
 
-const LandingHeader = ({ showSectionLinks = true }: LandingHeaderProps) => {
-  // On non-landing pages, section links point to landing page with hash
-  const sectionPrefix = showSectionLinks ? "" : "/";
+const LandingHeader = (_props: LandingHeaderProps) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +32,7 @@ const LandingHeader = ({ showSectionLinks = true }: LandingHeaderProps) => {
             {sectionItems.map((item) => (
               <a
                 key={item.href}
-                href={`${sectionPrefix}${item.href}`}
+                href={item.href}
                 className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.label}
@@ -71,7 +69,7 @@ const LandingHeader = ({ showSectionLinks = true }: LandingHeaderProps) => {
                       key={item.href}
                       render={
                         <a
-                          href={`${sectionPrefix}${item.href}`}
+                          href={item.href}
                           className="px-4 py-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
                         />
                       }

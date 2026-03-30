@@ -3,7 +3,7 @@ import { Shield, ArrowRight } from "lucide-react";
 
 const HowItWorks = () => {
   return (
-    <section id="como-empezar" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+    <section id="como-funciona" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">

@@ -118,7 +118,7 @@ export default async function CompetitorPage({ params }: PageProps) {
         />
       )}
 
-      <LandingHeader showSectionLinks={false} />
+      <LandingHeader />
 
       <main className="min-h-screen bg-white">
         {/* -- HERO -- */}
@@ -154,7 +154,7 @@ export default async function CompetitorPage({ params }: PageProps) {
               </div>
 
               {/* Video */}
-              <div className="relative" id="demo">
+              <div className="relative" id="demo-video">
                 <DemoVideo />
                 <div className="absolute -z-10 -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
                 <div className="absolute -z-10 -bottom-4 -left-4 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
@@ -197,7 +197,7 @@ export default async function CompetitorPage({ params }: PageProps) {
         </section>
 
         {/* -- COMO FUNCIONA -- */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <section id="como-funciona" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -269,7 +269,7 @@ export default async function CompetitorPage({ params }: PageProps) {
         )}
 
         {/* -- PLANES Y PRECIOS -- */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <section id="pricing" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-2">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
@@ -281,11 +281,13 @@ export default async function CompetitorPage({ params }: PageProps) {
         </section>
 
         {/* -- SOCIAL PROOF -- */}
-        <TestimonialsCarousel />
+        <div id="testimonios">
+          <TestimonialsCarousel />
+        </div>
 
         {/* -- FAQ -- */}
         {faqItems && faqItems.length > 0 && (
-          <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+          <section id="faq" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-3xl">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10">
                 Preguntas frecuentes: Fichados vs {comp.nombre}
