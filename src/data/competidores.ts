@@ -13,7 +13,7 @@ export interface Competidor {
 
 export const competidores: Competidor[] = [
   {
-    slug: "factorial",
+    slug: "fichados-vs-factorial",
     nombre: "Factorial",
     h1: "Fichados vs Factorial: comparativa de fichaje 2026",
     description:
@@ -33,7 +33,7 @@ export const competidores: Competidor[] = [
     ],
   },
   {
-    slug: "sesame",
+    slug: "fichados-vs-sesame",
     nombre: "Sesame HR",
     h1: "Fichados vs Sesame HR: comparativa de fichaje 2026",
     description:
@@ -53,7 +53,7 @@ export const competidores: Competidor[] = [
     ],
   },
   {
-    slug: "bizneo",
+    slug: "fichados-vs-bizneo",
     nombre: "Bizneo HR",
     h1: "Fichados vs Bizneo HR: comparativa de fichaje 2026",
     description:
@@ -73,7 +73,7 @@ export const competidores: Competidor[] = [
     ],
   },
   {
-    slug: "personio",
+    slug: "fichados-vs-personio",
     nombre: "Personio",
     h1: "Fichados vs Personio: comparativa de fichaje 2026",
     description:
@@ -93,7 +93,7 @@ export const competidores: Competidor[] = [
     ],
   },
   {
-    slug: "tramitapp",
+    slug: "fichados-vs-tramitapp",
     nombre: "TramitApp",
     h1: "Fichados vs TramitApp: comparativa de fichaje 2026",
     description:
@@ -113,7 +113,7 @@ export const competidores: Competidor[] = [
     ],
   },
   {
-    slug: "kenjo",
+    slug: "fichados-vs-kenjo",
     nombre: "Kenjo",
     h1: "Fichados vs Kenjo: comparativa de fichaje 2026",
     description:
