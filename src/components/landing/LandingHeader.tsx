@@ -14,13 +14,8 @@ const sectionItems = [
   { href: "#demo-video", label: "Demo" },
   { href: "#como-funciona", label: "Cómo funciona" },
   { href: "#pricing", label: "Precios" },
+  { href: "#testimonios", label: "Testimonios" },
   { href: "#faq", label: "FAQ" },
-];
-
-const pageItems = [
-  { href: "/herramientas/calculadora-horas-extras", label: "Herramientas" },
-  { href: "/recursos/plantilla-control-horario", label: "Recursos" },
-  { href: "/blog", label: "Blog" },
 ];
 
 const LandingHeader = ({ showSectionLinks = true }: LandingHeaderProps) => {
@@ -44,15 +39,6 @@ const LandingHeader = ({ showSectionLinks = true }: LandingHeaderProps) => {
               >
                 {item.label}
               </a>
-            ))}
-            {pageItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {item.label}
-              </Link>
             ))}
           </nav>
 
@@ -86,19 +72,6 @@ const LandingHeader = ({ showSectionLinks = true }: LandingHeaderProps) => {
                       render={
                         <a
                           href={`${sectionPrefix}${item.href}`}
-                          className="px-4 py-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
-                        />
-                      }
-                    >
-                      {item.label}
-                    </SheetClose>
-                  ))}
-                  {pageItems.map((item) => (
-                    <SheetClose
-                      key={item.href}
-                      render={
-                        <Link
-                          href={item.href}
                           className="px-4 py-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
                         />
                       }
