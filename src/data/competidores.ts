@@ -194,16 +194,17 @@ export const competidores: Competidor[] = [
     h1: "Fichados vs Bizneo HR: comparativa de fichaje 2026",
     description:
       "Compara Fichados vs Bizneo HR para el registro de jornada. Precio transparente vs presupuesto a medida. Descubre la mejor opcion para ti.",
-    precioCompetidor: "No público. Requiere demo comercial. Estimado ~4-9 €/empleado/mes según módulos",
+    precioCompetidor: "Desde 6 €/empleado/mes (Essential, mínimo 55 €/mes). Professional desde 9 €/empleado/mes. Control horario es módulo adicional.",
     features: [
       { feature: "Registro de jornada obligatorio (RDL 8/2019)", fichados: true, competidor: true },
-      { feature: "Precio público y transparente", fichados: true, competidor: false },
-      { feature: "Coste para 10 empleados", fichados: "30 €/mes", competidor: "Desde ~40-90 €/mes" },
+      { feature: "Precio público y transparente", fichados: true, competidor: true },
+      { feature: "Coste para 10 empleados", fichados: "30 €/mes", competidor: "Mínimo 60 €/mes (Essential) o 90 €/mes (Professional)" },
       { feature: "Alta y fichaje en menos de 5 minutos", fichados: true, competidor: false },
       { feature: "Fichaje móvil con geolocalización", fichados: true, competidor: true },
       { feature: "Geofencing avanzado y terminales biométricos", fichados: false, competidor: true },
       { feature: "Informes específicos para Inspección de Trabajo (PDF/Excel)", fichados: true, competidor: true },
-      { feature: "Sin periodo de permanencia", fichados: true, competidor: "No público" },
+      { feature: "Sin periodo de permanencia", fichados: true, competidor: false },
+      { feature: "Pago mínimo mensual", fichados: "9 €/mes", competidor: "55 €/mes mínimo" },
       { feature: "Soporte en español", fichados: true, competidor: true },
       { feature: "Registros inalterables conservados +4 años", fichados: true, competidor: true },
       { feature: "Panel de administración en tiempo real", fichados: true, competidor: true },
@@ -216,7 +217,7 @@ export const competidores: Competidor[] = [
       {
         title: "Precio transparente desde el minuto uno",
         description:
-          "Fichados publica su precio en la web: 9 €/mes hasta 3 empleados + 3 €/empleado extra. Con Bizneo HR no sabes cuánto vas a pagar hasta que hablas con su equipo comercial. Con Fichados, 10 empleados cuestan 30 €/mes sin sorpresas.",
+          "Fichados cuesta 9 €/mes hasta 3 empleados + 3 €/empleado extra. Bizneo HR parte de 6 €/empleado/mes (Essential) con un mínimo de 55 €/mes, y el control horario es un módulo adicional. Para 10 empleados: Fichados 30 €/mes vs Bizneo mínimo 60 €/mes. El doble.",
       },
       {
         title: "Empieza en 5 minutos, sin demo ni esperas",
@@ -226,7 +227,7 @@ export const competidores: Competidor[] = [
       {
         title: "Sin permanencia ni compromisos ocultos",
         description:
-          "Bizneo HR no publica sus condiciones de contrato. Fichados funciona mes a mes: cancelas cuando quieras. Si prefieres plan anual, obtienes un 20 % de descuento, pero siempre es tu elección.",
+          "Bizneo HR trabaja con suscripciones y un pago mínimo mensual de 55 €. Fichados funciona mes a mes desde 9 €/mes: cancelas cuando quieras. Si prefieres plan anual, obtienes un 20% de descuento, pero siempre es tu elección.",
       },
       {
         title: "Sin complejidad modular innecesaria",
@@ -248,7 +249,7 @@ export const competidores: Competidor[] = [
       {
         question: "¿Cuánto ahorro con Fichados frente a Bizneo HR?",
         answer:
-          "Bizneo HR no publica precios, pero fuentes del sector estiman entre 4 y 9 €/empleado/mes según los módulos contratados. Para 10 empleados, eso supone entre 40 y 90 €/mes. Fichados cuesta 30 €/mes para 10 empleados: un ahorro mínimo de 10 €/mes (120 €/año) y potencialmente mucho mayor.",
+          "Bizneo HR parte de 6 €/empleado/mes (Essential, mínimo 55 €/mes) y 9 €/empleado/mes (Professional). El control horario es un módulo adicional. Para 10 empleados: Bizneo mínimo 60 €/mes vs Fichados 30 €/mes. Un ahorro de 30 €/mes (360 €/año). Para 25 empleados: Bizneo mínimo 150 €/mes vs Fichados 75 €/mes.",
       },
       {
         question: "¿Qué tiene Bizneo HR que Fichados no ofrece?",
