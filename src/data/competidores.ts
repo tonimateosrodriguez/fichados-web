@@ -22,11 +22,11 @@ export const competidores: Competidor[] = [
     h1: "Fichados vs Factorial: comparativa de fichaje 2026",
     description:
       "Compara Fichados vs Factorial para el registro de jornada. Precio, funciones y facilidad de uso. Descubre cuál se adapta mejor a tu pyme.",
-    precioCompetidor: "Desde 5,25 €/empleado/mes (plan Business anual). Enterprise desde 8 €/empleado/mes",
+    precioCompetidor: "Desde 5,50 €/empleado/mes. Módulos adicionales à la carte. 10% dto anual.",
     features: [
       { feature: "Registro de jornada obligatorio (RDL 8/2019)", fichados: true, competidor: true },
       { feature: "Precio transparente en la web", fichados: true, competidor: true },
-      { feature: "Coste para 10 empleados", fichados: "30 €/mes", competidor: "52,50 €/mes" },
+      { feature: "Coste para 10 empleados", fichados: "30 €/mes", competidor: "55 €/mes" },
       { feature: "Alta y fichaje en menos de 5 minutos", fichados: true, competidor: false },
       { feature: "Fichaje móvil con geolocalización", fichados: true, competidor: true },
       { feature: "Informes específicos para Inspección de Trabajo (PDF/Excel)", fichados: true, competidor: true },
@@ -44,7 +44,7 @@ export const competidores: Competidor[] = [
       {
         title: "Ahorra un 43 % frente a Factorial",
         description:
-          "Para 10 empleados, Factorial cuesta 52,50 €/mes (plan Business anual). Fichados cuesta 30 €/mes. Son 22,50 €/mes menos, es decir, 270 € de ahorro al año. Si eliges el plan Enterprise de Factorial (8 €/empleado), la diferencia sube a 50 €/mes (600 €/año).",
+          "Para 10 empleados, Factorial cuesta 55 €/mes (plan Business anual). Fichados cuesta 30 €/mes. Son 25 €/mes menos, es decir, 270 € de ahorro al año. Si eliges el plan Enterprise de Factorial (8 €/empleado), la diferencia sube a 50 €/mes (600 €/año).",
       },
       {
         title: "Empieza a fichar en 5 minutos, sin hablar con nadie",
@@ -76,7 +76,7 @@ export const competidores: Competidor[] = [
       {
         question: "¿Cuánto ahorro con Fichados frente a Factorial?",
         answer:
-          "Con 10 empleados en el plan Business anual, Factorial cuesta 52,50 €/mes. Fichados cuesta 30 €/mes. Eso supone un ahorro de 22,50 €/mes, o 270 € al año. Con el plan Enterprise de Factorial (80 €/mes), el ahorro sube a 600 €/año.",
+          "Con 10 empleados en el plan Business anual, Factorial cuesta 55 €/mes. Fichados cuesta 30 €/mes. Eso supone un ahorro de 25 €/mes, o 270 € al año. Con el plan Enterprise de Factorial (80 €/mes), el ahorro sube a 600 €/año.",
       },
       {
         question: "¿Qué tiene Factorial que Fichados no ofrece?",
@@ -97,7 +97,7 @@ export const competidores: Competidor[] = [
     ctaFinal: {
       title: "Cambia de Factorial a Fichados hoy",
       subtitle:
-        "Ahorra hasta 270 €/año con 10 empleados. Alta en 5 minutos, sin permanencia. Desde 9 €/mes.",
+        "Ahorra hasta 300 €/año con 10 empleados. Alta en 5 minutos, sin permanencia. Desde 9 €/mes.",
     },
   },
 
@@ -108,11 +108,11 @@ export const competidores: Competidor[] = [
     h1: "Fichados vs Sesame HR: comparativa de fichaje 2026",
     description:
       "Compara Fichados vs Sesame HR para el control horario. Precios, funciones y diferencias clave. Encuentra la mejor opcion para tu empresa.",
-    precioCompetidor: "Starter 4,50 €/empleado/mes, Professional 6 €, Enterprise 8,50 € (todos anual)",
+    precioCompetidor: "HR Time 5,25 €/empleado/mes (4,75 € anual). HR Starter 6 €. HR Professional 6,75 €. Mínimo 15 empleados (78,75 €/mes).",
     features: [
       { feature: "Registro de jornada obligatorio (RDL 8/2019)", fichados: true, competidor: true },
       { feature: "Precio público y transparente", fichados: true, competidor: true },
-      { feature: "Coste para 10 empleados", fichados: "30 €/mes", competidor: "Desde 45 €/mes" },
+      { feature: "Coste para 10 empleados", fichados: "30 €/mes", competidor: "Mínimo 78,75 €/mes (pago mínimo obligatorio para 15 empleados)" },
       { feature: "Alta y fichaje en menos de 5 minutos", fichados: true, competidor: false },
       { feature: "Fichaje móvil con geolocalización", fichados: true, competidor: true },
       { feature: "Informes específicos para Inspección de Trabajo (PDF/Excel)", fichados: true, competidor: true },
@@ -130,7 +130,7 @@ export const competidores: Competidor[] = [
       {
         title: "Ahorra un 33 % frente a Sesame HR",
         description:
-          "Para 10 empleados, el plan Starter de Sesame HR cuesta 45 €/mes. Fichados cuesta 30 €/mes. Son 15 €/mes menos, o 180 € de ahorro al año. Si necesitas el plan Professional de Sesame (6 €/empleado), la diferencia sube a 30 €/mes (360 €/año).",
+          "Sesame HR tiene un pago mínimo de 78,75 €/mes (equivalente a 15 empleados), incluso si solo tienes 10. Fichados cuesta 30 €/mes para 10 empleados. Eso es un ahorro de 48,75 €/mes (585 €/año). Para 20 empleados: Sesame 105 €/mes vs Fichados 60 €/mes.",
       },
       {
         title: "Alta inmediata sin proceso comercial",
@@ -162,7 +162,7 @@ export const competidores: Competidor[] = [
       {
         question: "¿Cuánto ahorro con Fichados frente a Sesame HR?",
         answer:
-          "Con 10 empleados en el plan Starter, Sesame HR cuesta 45 €/mes. Fichados cuesta 30 €/mes. Ahorro: 15 €/mes o 180 €/año. Si comparas con el plan Professional (60 €/mes), el ahorro sube a 360 €/año.",
+          "Sesame HR tiene un mínimo de facturación de 78,75 €/mes (15 empleados), incluso si tienes menos. Fichados para 10 empleados cuesta 30 €/mes. Ahorro: 48,75 €/mes (585 €/año). Para 20 empleados: Sesame 105 €/mes vs Fichados 60 €/mes, un ahorro de 540 €/año.",
       },
       {
         question: "¿Qué tiene Sesame HR que Fichados no ofrece?",
