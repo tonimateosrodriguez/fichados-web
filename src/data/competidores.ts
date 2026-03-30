@@ -281,11 +281,11 @@ export const competidores: Competidor[] = [
     h1: "Fichados vs Personio: comparativa de fichaje 2026",
     description:
       "Compara Fichados vs Personio para el control horario en Espana. Precio, adaptacion local y funciones. Encuentra la mejor opcion para tu pyme.",
-    precioCompetidor: "No público. Estimado ~3,50 €/empleado/mes (Core). Control horario es módulo extra de pago",
+    precioCompetidor: "No público. Requiere demo comercial para obtener precio. Control horario es módulo adicional de pago sobre el plan base.",
     features: [
       { feature: "Registro de jornada obligatorio (RDL 8/2019)", fichados: true, competidor: true },
       { feature: "Precio público y transparente", fichados: true, competidor: false },
-      { feature: "Coste para 10 empleados (solo control horario)", fichados: "30 €/mes", competidor: "~35 €/mes + módulo extra" },
+      { feature: "Coste para 10 empleados (solo control horario)", fichados: "30 €/mes", competidor: "No público (requiere demo)" },
       { feature: "Alta y fichaje en menos de 5 minutos", fichados: true, competidor: false },
       { feature: "Fichaje móvil con geolocalización", fichados: true, competidor: false },
       { feature: "Informes específicos para Inspección de Trabajo española", fichados: true, competidor: "Genéricos europeos" },
@@ -313,7 +313,7 @@ export const competidores: Competidor[] = [
       {
         title: "Precio claro y sin módulos de pago adicionales",
         description:
-          "Personio no publica precios y el control horario es un módulo extra sobre el precio base (~3,50 €/empleado/mes Core). Con Fichados, 10 empleados cuestan 30 €/mes con todo incluido. Sin sorpresas, sin módulos adicionales.",
+          "Personio no publica precios. Para conocer el coste necesitas solicitar una demo comercial, y el control horario es un módulo extra sobre el plan base. Con Fichados, 10 empleados cuestan 30 €/mes con fichaje completo incluido. Precio público, sin sorpresas.",
       },
       {
         title: "Sin contrato anual obligatorio",
@@ -335,7 +335,7 @@ export const competidores: Competidor[] = [
       {
         question: "¿Cuánto ahorro con Fichados frente a Personio?",
         answer:
-          "Personio no publica precios, pero se estima ~3,50 €/empleado/mes para el Core más un módulo extra para control horario. Para 10 empleados, el coste total de Personio supera fácilmente los 35-50 €/mes. Fichados cuesta 30 €/mes con fichaje completo incluido.",
+          "Personio no publica precios — necesitas solicitar demo para conocerlos. Además, el control horario es un módulo adicional de pago. Fichados cuesta 30 €/mes para 10 empleados con todo incluido, sin módulos extra ni costes ocultos.",
       },
       {
         question: "¿Qué tiene Personio que Fichados no ofrece?",
@@ -445,7 +445,7 @@ export const competidores: Competidor[] = [
     h1: "Fichados vs Kenjo: comparativa de fichaje 2026",
     description:
       "Compara Fichados vs Kenjo para el control horario. Precio, funciones y diferencias clave. Descubre cual se adapta mejor a tu empresa.",
-    precioCompetidor: "No público. Estimado ~4,50-9 €/empleado/mes según fuentes de review",
+    precioCompetidor: "Calculadora dinámica en web (planes Starter, Growth, Connect). Onboarding obligatorio desde 200 €. Dto 10% anual.",
     features: [
       { feature: "Registro de jornada obligatorio (RDL 8/2019)", fichados: true, competidor: true },
       { feature: "Precio público y transparente", fichados: true, competidor: false },
@@ -464,12 +464,12 @@ export const competidores: Competidor[] = [
       {
         title: "Precio transparente y hasta un 67 % más económico",
         description:
-          "Kenjo no publica precios. Fuentes de review estiman entre 4,50 y 9 €/empleado/mes. Para 10 empleados, eso supone entre 45 y 90 €/mes. Fichados cuesta 30 €/mes: un ahorro de entre 15 y 60 €/mes (180-720 €/año).",
+          "Kenjo usa una calculadora dinámica en su web sin mostrar precios fijos. Además, cobra un onboarding obligatorio desde 200 € como pago único. Fichados cuesta 30 €/mes para 10 empleados, con precio público y sin coste de onboarding.",
       },
       {
         title: "Alta inmediata sin proceso comercial",
         description:
-          "Kenjo requiere solicitar una demo para obtener acceso y precio. Con Fichados te registras, configuras tu empresa e invitas a tu equipo en menos de 5 minutos. Sin llamadas, sin esperas.",
+          "Kenjo requiere solicitar una demo, pagar un onboarding obligatorio desde 200 € y pasar por un proceso de implementación. Con Fichados te registras, configuras tu empresa e invitas a tu equipo en menos de 5 minutos. Sin llamadas, sin pagos de setup.",
       },
       {
         title: "Pensado para pymes españolas, no para corporaciones",
