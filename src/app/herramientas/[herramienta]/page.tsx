@@ -168,7 +168,7 @@ export default async function HerramientaPage({ params }: PageProps) {
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
               Configura Fichados en menos de 5 minutos. Sin compromiso de
-              permanencia, sin costes ocultos. Desde solo 19 euros/mes.
+              permanencia, sin costes ocultos. Desde solo 9 euros/mes.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a

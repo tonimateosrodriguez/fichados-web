@@ -167,7 +167,7 @@ export const herramientas: Herramienta[] = [
       {
         question: "¿Cuánto cuesta un software de fichaje para empresas?",
         answer:
-          "El precio varía según el proveedor y el número de empleados. Fichados parte desde 19 euros al mes más 3 euros por empleado. Otros competidores como Factorial, Sesame HR o Bizneo parten desde 50-60 euros al mes con tarifas por usuario de entre 4,50 y 6 euros.",
+          "El precio varía según el proveedor y el número de empleados. Fichados parte desde 9 euros al mes (incluye hasta 3 empleados) más 3 euros por cada empleado adicional. Otros competidores como Factorial, Sesame HR o Bizneo parten desde 50-60 euros al mes con tarifas por usuario de entre 4,50 y 6 euros.",
       },
       {
         question: "¿Qué debe incluir un buen software de fichaje?",
@@ -177,7 +177,7 @@ export const herramientas: Herramienta[] = [
       {
         question: "¿Fichados es el software de fichaje más barato?",
         answer:
-          "Sí. Fichados es la opción más económica del mercado con una tarifa plana de 19 euros al mes más 3 euros por empleado. Para una empresa de 10 empleados, Fichados cuesta 49 euros al mes frente a los 52-60 euros de la competencia, con un ahorro anual significativo.",
+          "Sí. Fichados es la opción más económica del mercado: 9 euros al mes (incluye hasta 3 empleados) más 3 euros por cada empleado adicional. Para una empresa de 10 empleados, Fichados cuesta 30 euros al mes frente a los 52-60 euros de la competencia, con un ahorro anual significativo.",
       },
     ],
   },

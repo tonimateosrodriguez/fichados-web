@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { BarChart3, ChevronRight, Check } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { calculateMonthlyPrice } from "@/components/landing/PricingCalculator";
 
 interface Software {
   nombre: string;
@@ -14,7 +15,7 @@ interface Software {
 const softwares: Software[] = [
   {
     nombre: "Fichados",
-    calcular: (n) => 19 + 3 * n,
+    calcular: (n) => calculateMonthlyPrice(n),
     color: "bg-primary text-primary-foreground",
     highlight: true,
   },
@@ -139,7 +140,7 @@ export default function CalculadoraCosteFichaje() {
             href="https://app.fichados.es/registro-empresa"
             className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Empieza con Fichados desde 19 euros/mes
+            Empieza con Fichados desde 9 euros/mes
             <ChevronRight className="size-4" />
           </a>
         </div>

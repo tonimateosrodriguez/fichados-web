@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ShieldAlert, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { calculateMonthlyPrice } from "@/components/landing/PricingCalculator";
 
 type TipoInfraccion = "leve" | "grave" | "muy-grave";
 
@@ -19,7 +20,7 @@ export default function CalculadoraMultasFichaje() {
   const rango = rangos[tipo];
   const multaMin = rango.min * empleados;
   const multaMax = rango.max * empleados;
-  const costeFichados = 19 + 3 * empleados;
+  const costeFichados = calculateMonthlyPrice(empleados);
 
   return (
     <Card>
