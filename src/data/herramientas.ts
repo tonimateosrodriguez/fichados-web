@@ -10,6 +10,39 @@ export interface Herramienta {
 
 export const herramientas: Herramienta[] = [
   {
+    slug: "calculadora-horas-minutos",
+    nombre: "Calculadora de horas",
+    h1: "Calculadora de horas y minutos online gratis",
+    description:
+      "Suma y resta horas y minutos o calcula la diferencia entre dos horas al instante. Calculadora de horas online gratuita, sin registro.",
+    intro:
+      "Suma y resta horas y minutos, o calcula cuánto tiempo hay entre dos horas (incluidos los turnos de noche que cruzan la medianoche). Resultado al instante en formato horas:minutos y en decimal.",
+    componentKey: "horas-minutos",
+    faq: [
+      {
+        question: "¿Cómo se suman horas y minutos?",
+        answer:
+          "Las horas y los minutos se suman por separado y luego los minutos que superan 60 se convierten en horas. Por ejemplo, 1h 45min + 1h 30min = 2h 75min = 3h 15min. Esta calculadora lo hace automáticamente: solo introduce cada tiempo en formato horas:minutos y pulsa el botón + o − de cada fila.",
+      },
+      {
+        question: "¿Cómo calculo la diferencia entre dos horas?",
+        answer:
+          "Resta la hora de inicio a la hora de fin. Por ejemplo, de 9:00 a 17:30 hay 8 horas y 30 minutos. Si la hora de fin es anterior a la de inicio (un turno de noche que cruza la medianoche), la calculadora suma automáticamente las 24 horas para darte la duración real.",
+      },
+      {
+        question: "¿Qué significa el resultado en decimal?",
+        answer:
+          "El formato decimal expresa los minutos como fracción de hora: 8h 30min equivale a 8,5 h. Es el formato habitual para calcular nóminas, facturar por horas o registrar la jornada, porque permite multiplicar directamente por un precio o salario por hora.",
+      },
+      {
+        question:
+          "¿Puedo usar esta calculadora para el control horario de mis empleados?",
+        answer:
+          "Para cálculos puntuales, sí. Pero el registro de jornada obligatorio (RDL 8/2019) exige guardar las horas de cada empleado de forma fiable durante 4 años. Con Fichados tus empleados fichan desde el móvil y las horas se suman solas, sin calcularlas a mano ni riesgo de errores.",
+      },
+    ],
+  },
+  {
     slug: "calculadora-horas-extras",
     nombre: "Calculadora de horas extras",
     h1: "Calculadora de horas extras online gratis",

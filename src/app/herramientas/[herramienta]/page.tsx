@@ -11,6 +11,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 
+import CalculadoraHorasMinutos from "@/components/herramientas/CalculadoraHorasMinutos";
 import CalculadoraHorasExtras from "@/components/herramientas/CalculadoraHorasExtras";
 import CalculadoraHorasTrabajadas from "@/components/herramientas/CalculadoraHorasTrabajadas";
 import CalculadoraJornadaLaboral from "@/components/herramientas/CalculadoraJornadaLaboral";
@@ -19,6 +20,7 @@ import CalculadoraCosteFichaje from "@/components/herramientas/CalculadoraCosteF
 import type { ComponentType } from "react";
 
 const componentMap: Record<string, ComponentType> = {
+  "horas-minutos": CalculadoraHorasMinutos,
   "horas-extras": CalculadoraHorasExtras,
   "horas-trabajadas": CalculadoraHorasTrabajadas,
   "jornada-laboral": CalculadoraJornadaLaboral,
@@ -80,7 +82,7 @@ export default async function HerramientaPage({ params }: PageProps) {
     "@type": "WebApplication",
     name: herramienta.nombre,
     description: herramienta.description,
-    url: `https://fichados.es/herramientas/${herramienta.slug}`,
+    url: `https://www.fichados.es/herramientas/${herramienta.slug}`,
     applicationCategory: "BusinessApplication",
     operatingSystem: "All",
     offers: {

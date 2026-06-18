@@ -28,6 +28,7 @@ const competitorSlugs = [
 ]
 
 const herramientaSlugs = [
+  'calculadora-horas-minutos',
   'calculadora-horas-extras', 'calculadora-horas-trabajadas',
   'calculadora-jornada-laboral', 'calculadora-multas-fichaje',
   'calculadora-coste-fichaje',
