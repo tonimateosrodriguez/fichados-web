@@ -19,7 +19,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #0b1f33 0%, #0f3d2e 100%)",
+          background: "linear-gradient(135deg, #0b1f33 0%, #1e3a8a 100%)",
           color: "#ffffff",
           fontFamily: "sans-serif",
         }}
@@ -33,7 +33,7 @@ export default function OpengraphImage() {
             letterSpacing: "-1px",
           }}
         >
-          <span style={{ color: "#22c55e" }}>●</span>
+          <span style={{ color: "#3b82f6" }}>●</span>
           <span style={{ marginLeft: 16 }}>Fichados</span>
         </div>
 

@@ -159,9 +159,9 @@ export const recursos: Recurso[] = [
       },
       {
         question:
-          "¿Fichados puede gestionar los turnos de trabajo automáticamente?",
+          "¿Fichados genera los turnos rotativos automáticamente?",
         answer:
-          "Sí. Fichados permite crear patrones de turnos rotativos que se asignan automáticamente. Los empleados ven su turno desde la app, reciben recordatorios y fichan directamente. Tú solo supervisas desde el panel de administración.",
+          "No de forma automática: Fichados se centra en el registro de jornada, no en generar cuadrantes de turnos por ti. Puedes seguir planificando los turnos con esta plantilla y usar Fichados para lo que de verdad exige la ley: que tu equipo fiche entrada, salida y pausas desde el móvil, con registros inalterables e informes listos para la Inspección. Así separas la planificación (la plantilla) del registro real de horas (Fichados).",
       },
     ],
   },
@@ -201,6 +201,47 @@ export const recursos: Recurso[] = [
           "¿Fichados sustituye al cuadrante horario en Excel?",
         answer:
           "Sí. Con Fichados puedes crear cuadrantes horarios digitales que tus empleados consultan desde la app. Cualquier cambio se actualiza en tiempo real, sin necesidad de reimprimir ni reenviar documentos. Además, el fichaje queda vinculado al horario planificado.",
+      },
+    ],
+  },
+  {
+    slug: "plantilla-horario-semanal",
+    nombre: "Horario semanal",
+    h1: "Plantilla de horario semanal para empleados en Excel (gratis)",
+    description:
+      "Descarga gratis una plantilla de horario semanal para empleados en Excel: organiza los turnos del equipo de lunes a domingo, una fila por trabajador y horas automáticas. Editable e imprimible.",
+    intro:
+      "Organiza el horario semanal de todo tu equipo de un vistazo: quién trabaja cada día, en qué franja y cuántas horas suma cada empleado de lunes a domingo. Una buena planificación es el primer paso para repartir los turnos sin líos y tener la semana organizada, aunque no sustituye al registro de jornada que exige la ley (lo aclaramos más abajo).",
+    fileType: "excel",
+    fileName: "plantilla-horario-semanal-fichados.xlsx",
+    features: [
+      "Cuadrícula de lunes a domingo con una fila por empleado, lista para repartir la semana completa de un vistazo.",
+      "Franjas por empleado (mañana, tarde, partido o nocturno) para anotar a mano la hora de entrada y de salida de cada día.",
+      "Total de horas semanales por empleado con fórmula automática: escribes los horarios y la plantilla suma las horas sola.",
+      "Código de colores para distinguir turnos, descansos, vacaciones y ausencias sin confundirte.",
+      "Diseño preparado para imprimir en A4 y colgar en el tablón o repartir en mano al equipo.",
+      "Compatible con Microsoft Excel, Google Sheets y LibreOffice Calc: ábrela y edítala donde mejor te venga, sin instalar nada raro.",
+    ],
+    faq: [
+      {
+        question: "¿Cómo edito la plantilla de horario semanal en Excel?",
+        answer:
+          "Descarga el archivo y ábrelo con Excel, Google Sheets o LibreOffice. Escribe el nombre de cada empleado en su fila y anota las horas de entrada y salida en cada día de lunes a domingo. El total de horas semanales se calcula solo gracias a la fórmula que ya viene incluida. Usa el código de colores para marcar descansos, vacaciones o ausencias y, cuando lo tengas, imprímela o compártela con tu equipo.",
+      },
+      {
+        question: "¿La plantilla sirve también para Google Sheets y LibreOffice?",
+        answer:
+          "Sí. La plantilla es un archivo de Excel estándar, así que se abre y se edita en Microsoft Excel, en Google Sheets (subiéndola a tu Drive) y en LibreOffice Calc. Las fórmulas del total de horas y el código de colores se conservan sin problemas en los tres en la práctica; en algún caso menor el formato de color puede variar ligeramente al pasar de una herramienta a otra. Elige la que ya uses y empieza a planificar; no necesitas instalar nada nuevo.",
+      },
+      {
+        question: "¿Un horario semanal previsto cumple con el registro de jornada obligatorio?",
+        answer:
+          "No, son cosas distintas. Esta plantilla te ayuda a planificar el horario semanal previsto, es decir, a organizar qué turno hace cada persona. El registro de jornada que exige la ley (art. 34.9 del Estatuto de los Trabajadores, RDL 8/2019) es otra cosa: debe reflejar las horas que cada empleado ha trabajado realmente, con su hora de entrada y salida de cada día, y conservarse durante cuatro años. Una previsión en Excel planifica la semana, pero no sustituye al registro real de horas; para eso te conviene una plantilla de control horario (busca nuestra plantilla de control horario en la sección de recursos) o, mejor, un sistema digital. Ojo con el matiz legal: el registro es obligatorio desde 2019; que tenga que ser en formato digital aún no es una obligación plena para todas las empresas, aunque hay una reforma del Ministerio de Trabajo en tramitación que va en esa dirección. El papel sigue siendo legal hoy, pero es frágil ante una inspección.",
+      },
+      {
+        question: "¿Y si necesito ir más allá de la plantilla de Excel?",
+        answer:
+          "La plantilla es genial para planificar la semana, pero a la hora de registrar la jornada real tiene límites: cada empleado tendría que apuntar sus horas a mano, los archivos se pueden modificar y reunir todo para una inspección da bastante trabajo. Con Fichados das el salto: tus empleados fichan entrada, salida y pausas desde el móvil, el ordenador o una tablet; tú lo ves todo en tiempo real en el panel; y generas informes en PDF o Excel listos para la Inspección. La ley obliga a conservar los registros cuatro años; con Fichados quedan inalterables y se conservan durante más de cuatro años. Desde 9 €/mes hasta 3 empleados y sin permanencia, lo tienes funcionando en 5 minutos en app.fichados.es/registro-empresa.",
       },
     ],
   },

@@ -45,13 +45,36 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 /* ---------- Helpers ---------- */
 
 const renderBold = (text: string) => {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  // Divide el texto en fragmentos de **negrita** y enlaces markdown [texto](url),
+  // dejando el resto como texto plano.
+  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
   return parts.map((part, i) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
         <strong key={i} className="font-semibold text-foreground">
           {part.slice(2, -2)}
         </strong>
+      );
+    }
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) {
+      const [, label, href] = link;
+      const className =
+        "text-primary underline underline-offset-2 hover:no-underline";
+      return href.startsWith("/") ? (
+        <Link key={i} href={href} className={className}>
+          {label}
+        </Link>
+      ) : (
+        <a
+          key={i}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={className}
+        >
+          {label}
+        </a>
       );
     }
     return part;

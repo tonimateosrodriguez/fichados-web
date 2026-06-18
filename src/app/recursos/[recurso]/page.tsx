@@ -116,6 +116,8 @@ export default async function RecursoPage({ params }: PageProps) {
 
   const fileLabel = recurso.fileType === "excel" ? "Excel" : "PDF";
 
+  const relacionados = recursos.filter((r) => r.slug !== recurso.slug).slice(0, 4);
+
   return (
     <>
       <script
@@ -230,6 +232,36 @@ export default async function RecursoPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* Plantillas relacionadas */}
+        <section className="py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4">
+            <h2 className="text-center text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              Plantillas relacionadas
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+              Otras plantillas gratuitas para organizar y registrar la jornada
+              de tu equipo.
+            </p>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {relacionados.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/recursos/${r.slug}`}
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary"
+                >
+                  <div className="flex items-start gap-3">
+                    <FileSpreadsheet className="mt-0.5 size-5 shrink-0 text-primary" />
+                    <span className="text-sm font-medium text-foreground">
+                      {r.h1}
+                    </span>
+                  </div>
+                  <ChevronRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="bg-primary py-16 sm:py-20">
           <div className="mx-auto max-w-3xl px-4 text-center">
@@ -239,7 +271,7 @@ export default async function RecursoPage({ params }: PageProps) {
             <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
               Olvídate de rellenar plantillas manualmente. Fichados registra las
               horas de tu equipo automáticamente, genera informes y te mantiene
-              al día con la normativa. Desde solo 19 €/mes.
+              al día con la normativa. Desde solo 9 €/mes.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a

@@ -16,6 +16,9 @@ const articleSlugs = [
   'fichados-vs-factorial-vs-sesame',
   'gestionar-vacaciones-equipo',
   'fichados-geolocalizacion-fichajes',
+  'fichaje-digital-obligatorio-2026',
+  'control-horario-digital-obligatorio-2026',
+  'fichar-en-el-trabajo-guia-completa',
 ]
 
 const sectorSlugs = [
@@ -37,7 +40,7 @@ const herramientaSlugs = [
 const recursoSlugs = [
   'plantilla-control-horario', 'modelo-registro-jornada',
   'plantilla-registro-horario-trabajadores', 'plantilla-turnos-trabajo',
-  'plantilla-cuadrante-horario',
+  'plantilla-cuadrante-horario', 'plantilla-horario-semanal',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

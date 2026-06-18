@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     const filePath = join(process.cwd(), "public", "recursos", recurso.fileName);
     const fileBuffer = await readFile(filePath);
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://fichados.es";
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://www.fichados.es";
 
     // Send email with attachment
     const resend = getResend();
