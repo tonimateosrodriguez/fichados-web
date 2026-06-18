@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
 import LandingHeader from "@/components/landing/LandingHeader";
 import LandingFooter from "@/components/landing/LandingFooter";
@@ -26,7 +26,7 @@ export default function PoliticaCookies() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-3xl font-bold">Política de Cookies</CardTitle>
+              <h1 className="text-3xl font-bold">Política de Cookies</h1>
             </CardHeader>
             <CardContent className="prose prose-sm max-w-none space-y-6">
               <section>

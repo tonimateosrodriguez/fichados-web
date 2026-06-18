@@ -1,6 +1,9 @@
 import type { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://fichados.es'
+// Host canónico: www (es el que sirve 200 y el que Google ya indexó).
+// El apex fichados.es hace 307 → www, así que el sitemap DEBE usar www
+// para no listar URLs que redirigen.
+const BASE_URL = 'https://www.fichados.es'
 
 const articleSlugs = [
   'guia-registro-jornada-2026',
@@ -39,6 +42,7 @@ const recursoSlugs = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString()
 
+  // Solo páginas indexables. Las legales son noindex → NO van en el sitemap.
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
@@ -51,30 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/politica-privacidad`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.1,
-    },
-    {
-      url: `${BASE_URL}/terminos-y-condiciones`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.1,
-    },
-    {
-      url: `${BASE_URL}/politica-cookies`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.1,
-    },
-    {
-      url: `${BASE_URL}/aviso-legal`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.1,
     },
   ]
 

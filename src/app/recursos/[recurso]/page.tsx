@@ -39,10 +39,12 @@ export async function generateMetadata({
   return {
     title: recurso.h1,
     description: recurso.description,
+    alternates: { canonical: `/recursos/${slug}` },
     openGraph: {
       title: recurso.h1,
       description: recurso.description,
       type: "website",
+      images: ["/opengraph-image"],
     },
   };
 }

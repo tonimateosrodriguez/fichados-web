@@ -8,6 +8,11 @@ import { PricingCalculator } from "@/components/landing/PricingCalculator";
 import TestimonialsCarousel from "@/components/landing/TestimonialsCarousel";
 import FAQSection from "@/components/landing/FAQSection";
 import LandingFooter from "@/components/landing/LandingFooter";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const faqItems = [
   {
@@ -61,7 +66,7 @@ export default function Home() {
     operatingSystem: "Web",
     description:
       "Sistema de fichaje online conforme al Real Decreto-ley 8/2019. Registro de jornada laboral obligatorio en España.",
-    url: "https://fichados.es",
+    url: "https://www.fichados.es",
     offers: {
       "@type": "Offer",
       price: "9",

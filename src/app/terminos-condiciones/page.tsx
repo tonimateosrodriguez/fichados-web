@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import LandingHeader from "@/components/landing/LandingHeader";
@@ -26,7 +26,7 @@ export default function TerminosCondiciones() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-3xl font-bold">Términos y Condiciones del Servicio</CardTitle>
+              <h1 className="text-3xl font-bold">Términos y Condiciones del Servicio</h1>
             </CardHeader>
             <CardContent className="prose prose-sm max-w-none space-y-6">
               <section>

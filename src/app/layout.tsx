@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   description:
     "Fichados es el sistema de fichaje online que cumple con la normativa laboral. Registra entradas y salidas, controla jornadas y automatiza estadísticas desde 19€/mes.",
-  metadataBase: new URL("https://fichados.es"),
+  metadataBase: new URL("https://www.fichados.es"),
   openGraph: {
     type: "website",
     locale: "es_ES",

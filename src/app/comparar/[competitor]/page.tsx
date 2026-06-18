@@ -30,10 +30,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: comp.h1,
     description: comp.description,
+    alternates: { canonical: `/comparar/${slug}` },
     openGraph: {
       title: comp.h1,
       description: comp.description,
       type: "website",
+      images: ["/opengraph-image"],
     },
   };
 }

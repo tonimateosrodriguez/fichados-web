@@ -41,10 +41,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description: sector.description,
     keywords: [sector.keywords.primary, ...sector.keywords.secondary],
+    alternates: { canonical: `/sectores/${slug}` },
     openGraph: {
       title,
       description: sector.description,
       type: "website",
+      images: ["/opengraph-image"],
     },
   };
 }

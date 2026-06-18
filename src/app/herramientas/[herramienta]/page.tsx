@@ -44,10 +44,12 @@ export async function generateMetadata({
   return {
     title: herramienta.h1,
     description: herramienta.description,
+    alternates: { canonical: `/herramientas/${slug}` },
     openGraph: {
       title: herramienta.h1,
       description: herramienta.description,
       type: "website",
+      images: ["/opengraph-image"],
     },
   };
 }
