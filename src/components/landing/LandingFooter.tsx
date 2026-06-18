@@ -1,23 +1,42 @@
 import Link from "next/link";
 
+const sectores: [string, string][] = [
+  ["hosteleria", "Hostelería"],
+  ["construccion", "Construcción"],
+  ["sanidad", "Sanidad"],
+  ["educacion", "Educación"],
+  ["administracion-publica", "Administración pública"],
+  ["comercio", "Comercio"],
+  ["autonomos", "Autónomos"],
+];
+
+const comparativas: [string, string][] = [
+  ["factorial", "Fichados vs Factorial"],
+  ["sesame", "Fichados vs Sesame"],
+  ["bizneo", "Fichados vs Bizneo"],
+  ["personio", "Fichados vs Personio"],
+  ["tramitapp", "Fichados vs TramitApp"],
+  ["kenjo", "Fichados vs Kenjo"],
+];
+
 const LandingFooter = () => {
   return (
     <footer className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-background">
       <div className="container mx-auto max-w-6xl">
-        {/* Columnas principales */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 mb-16">
-          {/* Columna 1 – Marca */}
-          <div className="col-span-2 md:col-span-1">
-            <span className="text-xl font-bold text-foreground mb-4 block">Fichados</span>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-              Control de fichajes online conforme a la normativa laboral española.
-            </p>
-            <p className="text-sm text-foreground font-medium italic">
-              Cumple la ley. Duerme tranquilo.
-            </p>
-          </div>
+        {/* Marca */}
+        <div className="mb-12 max-w-sm">
+          <span className="text-xl font-bold text-foreground mb-4 block">Fichados</span>
+          <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+            Control de fichajes online conforme a la normativa laboral española.
+          </p>
+          <p className="text-sm text-foreground font-medium italic">
+            Cumple la ley. Duerme tranquilo.
+          </p>
+        </div>
 
-          {/* Columna 2 – Producto */}
+        {/* Columnas de navegación */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10 mb-16">
+          {/* Producto */}
           <div>
             <h4 className="font-semibold text-foreground mb-5">Producto</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
@@ -29,10 +48,11 @@ const LandingFooter = () => {
             </ul>
           </div>
 
-          {/* Columna 3 – Herramientas */}
+          {/* Herramientas */}
           <div>
             <h4 className="font-semibold text-foreground mb-5">Herramientas</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><Link href="/herramientas/calculadora-horas-minutos" className="hover:text-foreground transition-colors">Calculadora de horas</Link></li>
               <li><Link href="/herramientas/calculadora-horas-extras" className="hover:text-foreground transition-colors">Calculadora horas extras</Link></li>
               <li><Link href="/herramientas/calculadora-horas-trabajadas" className="hover:text-foreground transition-colors">Calculadora horas trabajadas</Link></li>
               <li><Link href="/herramientas/calculadora-jornada-laboral" className="hover:text-foreground transition-colors">Calculadora jornada laboral</Link></li>
@@ -41,18 +61,43 @@ const LandingFooter = () => {
             </ul>
           </div>
 
-          {/* Columna 4 – Recursos */}
+          {/* Recursos */}
           <div>
             <h4 className="font-semibold text-foreground mb-5">Recursos</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li><Link href="/recursos/plantilla-control-horario" className="hover:text-foreground transition-colors">Plantilla control horario</Link></li>
               <li><Link href="/recursos/modelo-registro-jornada" className="hover:text-foreground transition-colors">Modelo registro jornada</Link></li>
+              <li><Link href="/recursos/plantilla-registro-horario-trabajadores" className="hover:text-foreground transition-colors">Registro horario trabajadores</Link></li>
               <li><Link href="/recursos/plantilla-turnos-trabajo" className="hover:text-foreground transition-colors">Plantilla turnos trabajo</Link></li>
               <li><Link href="/recursos/plantilla-cuadrante-horario" className="hover:text-foreground transition-colors">Plantilla cuadrante horario</Link></li>
             </ul>
           </div>
 
-          {/* Columna 5 – Legal */}
+          {/* Sectores */}
+          <div>
+            <h4 className="font-semibold text-foreground mb-5">Sectores</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              {sectores.map(([slug, label]) => (
+                <li key={slug}>
+                  <Link href={`/sectores/${slug}`} className="hover:text-foreground transition-colors">{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Comparativas */}
+          <div>
+            <h4 className="font-semibold text-foreground mb-5">Comparativas</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              {comparativas.map(([slug, label]) => (
+                <li key={slug}>
+                  <Link href={`/comparar/fichados-vs-${slug}`} className="hover:text-foreground transition-colors">{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
           <div>
             <h4 className="font-semibold text-foreground mb-5">Legal</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
