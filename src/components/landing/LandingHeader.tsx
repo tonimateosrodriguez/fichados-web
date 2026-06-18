@@ -66,7 +66,7 @@ const LandingHeader = (_props: LandingHeaderProps) => {
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Abrir menú</span>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] sm:w-[350px]">
+              <SheetContent side="right" className="w-[280px] sm:w-[350px] px-6">
                 <nav className="flex flex-col gap-4 mt-8">
                   {sectionItems.map((item) => (
                     <SheetClose
