@@ -19,6 +19,9 @@ const articleSlugs = [
   'fichaje-digital-obligatorio-2026',
   'control-horario-digital-obligatorio-2026',
   'fichar-en-el-trabajo-guia-completa',
+  'es-legal-fichar-con-geolocalizacion',
+  'fichaje-biometrico-huella-reconocimiento-facial',
+  'sistemas-de-control-horario',
 ]
 
 const sectorSlugs = [

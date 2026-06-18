@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, Calendar, Clock, ChevronLeft } from "lucide-react";
+import {
+  ArrowRight,
+  Calendar,
+  Clock,
+  ChevronLeft,
+  CheckCircle2,
+  XCircle,
+  AlertTriangle,
+  Info,
+  Lightbulb,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -14,6 +24,12 @@ import {
 } from "@/components/ui/breadcrumb";
 import LandingHeader from "@/components/landing/LandingHeader";
 import LandingFooter from "@/components/landing/LandingFooter";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import {
   ARTICLES,
   CATEGORY_STYLES,
@@ -150,6 +166,113 @@ const ContentRenderer = ({ sections }: { sections: ContentSection[] }) => (
               </a>
             </div>
           );
+        case "verdict": {
+          const map = {
+            si: { Icon: CheckCircle2, wrap: "border-[#047857]/30 bg-green-50", accent: "text-[#047857]", iconBg: "bg-[#047857]/15" },
+            no: { Icon: XCircle, wrap: "border-[#be123c]/30 bg-red-50", accent: "text-[#be123c]", iconBg: "bg-[#be123c]/15" },
+            depende: { Icon: AlertTriangle, wrap: "border-amber-400/40 bg-amber-50", accent: "text-amber-700", iconBg: "bg-amber-400/20" },
+          } as const;
+          const v = map[(section.variant as keyof typeof map) ?? "depende"] ?? map.depende;
+          return (
+            <div
+              key={i}
+              role="note"
+              className={`my-2 flex flex-col gap-4 rounded-xl border ${v.wrap} p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-6`}
+            >
+              <div className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl ${v.iconBg} ${v.accent}`}>
+                <v.Icon className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <div className="min-w-0 space-y-1.5">
+                {section.title && (
+                  <p className={`text-base font-bold sm:text-lg ${v.accent}`}>{section.title}</p>
+                )}
+                <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
+                  {renderBold(section.text || "")}
+                </p>
+              </div>
+            </div>
+          );
+        }
+        case "callout": {
+          const map = {
+            info: { Icon: Info, wrap: "border-primary/20 border-l-primary bg-primary/5", accent: "text-primary", body: "text-foreground/80" },
+            aviso: { Icon: AlertTriangle, wrap: "border-amber-300 border-l-amber-500 bg-amber-50", accent: "text-amber-700", body: "text-amber-900" },
+            clave: { Icon: Lightbulb, wrap: "border-[#047857]/30 border-l-[#047857] bg-green-50", accent: "text-[#047857]", body: "text-[#065f46]" },
+          } as const;
+          const c = map[(section.variant as keyof typeof map) ?? "info"] ?? map.info;
+          return (
+            <div
+              key={i}
+              role="note"
+              className={`my-2 flex gap-3 rounded-lg border border-l-4 ${c.wrap} p-4 sm:gap-4 sm:p-5`}
+            >
+              <c.Icon className={`h-5 w-5 flex-shrink-0 ${c.accent}`} aria-hidden="true" />
+              <div className="min-w-0 space-y-1">
+                {section.title && (
+                  <p className={`text-sm font-semibold ${c.accent}`}>{section.title}</p>
+                )}
+                <p className={`text-sm leading-relaxed ${c.body}`}>
+                  {renderBold(section.text || "")}
+                </p>
+              </div>
+            </div>
+          );
+        }
+        case "table":
+          return (
+            <div
+              key={i}
+              className="my-2 overflow-hidden rounded-xl border border-primary/20 bg-primary/5"
+            >
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse text-sm">
+                  {section.title && (
+                    <caption className="sr-only">{section.title}</caption>
+                  )}
+                  <thead>
+                    <tr className="border-b border-primary/20 bg-primary/10 text-left">
+                      {section.headers?.map((h, hi) => (
+                        <th
+                          key={hi}
+                          scope="col"
+                          className="whitespace-nowrap px-4 py-3 text-left font-semibold text-foreground"
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {section.rows?.map((row, ri) => (
+                      <tr
+                        key={ri}
+                        className={`border-b border-primary/10 last:border-0 ${
+                          section.highlightRow === ri
+                            ? "bg-primary/10 font-semibold"
+                            : ri % 2 === 1
+                            ? "bg-card/40"
+                            : ""
+                        }`}
+                      >
+                        {row.map((cell, ci) => (
+                          <td
+                            key={ci}
+                            className={`px-4 py-3 align-top ${
+                              ci === 0
+                                ? "font-semibold text-foreground"
+                                : "text-foreground/80"
+                            }`}
+                          >
+                            {renderBold(cell)}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          );
         default:
           return null;
       }
@@ -194,6 +317,20 @@ export default async function BlogArticlePage({ params }: PageProps) {
     },
   };
 
+  /* JSON-LD FAQPage (solo si el post tiene FAQs) */
+  const faqJsonLd =
+    article.faqs && article.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: article.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: { "@type": "Answer", text: f.answer },
+          })),
+        }
+      : null;
+
   return (
     <div className="min-h-screen bg-white">
       <LandingHeader showSectionLinks={false} />
@@ -203,6 +340,12 @@ export default async function BlogArticlePage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       {/* Breadcrumb */}
       <section className="pt-24 sm:pt-32 px-4 sm:px-6 lg:px-8">
@@ -304,6 +447,33 @@ export default async function BlogArticlePage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      {article.faqs && article.faqs.length > 0 && (
+        <section className="px-4 sm:px-6 lg:px-8 pb-16">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold text-foreground mb-6">
+              Preguntas frecuentes
+            </h2>
+            <Accordion className="space-y-4">
+              {article.faqs.map((item, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`faq-${i}`}
+                  className="bg-card rounded-lg border border-border px-6"
+                >
+                  <AccordionTrigger className="text-left text-foreground hover:no-underline py-5">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-5">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+      )}
 
       {/* Related articles */}
       {relatedArticles.length > 0 && (

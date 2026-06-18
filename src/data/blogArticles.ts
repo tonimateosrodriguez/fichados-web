@@ -1,10 +1,27 @@
 export type ArticleCategory = "Normativa" | "Guías" | "Comparativas" | "Novedades";
 
 export interface ContentSection {
-  type: "h2" | "h3" | "paragraph" | "list" | "quote" | "cta";
+  type:
+    | "h2"
+    | "h3"
+    | "paragraph"
+    | "list"
+    | "quote"
+    | "cta"
+    | "verdict"
+    | "callout"
+    | "table";
   id?: string;
   text?: string;
   items?: string[];
+  /** verdict: si | no | depende · callout: info | aviso | clave */
+  variant?: "si" | "no" | "depende" | "info" | "aviso" | "clave";
+  /** título corto para verdict/callout, o caption para table */
+  title?: string;
+  /** table */
+  headers?: string[];
+  rows?: string[][];
+  highlightRow?: number;
 }
 
 export interface TocEntry {
@@ -23,6 +40,7 @@ export interface Article {
   gradient: string;
   content: ContentSection[];
   tableOfContents: TocEntry[];
+  faqs?: { question: string; answer: string }[];
 }
 
 export const CATEGORY_STYLES: Record<ArticleCategory, string> = {
@@ -1299,6 +1317,803 @@ export const ARTICLES: Article[] = [
       {
         "type": "cta",
         "text": "Cumple la ley sin papeles ni complicaciones. Empieza gratis en 5 minutos"
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "slug": "es-legal-fichar-con-geolocalizacion",
+    "title": "¿Es legal fichar con geolocalización? Lo que dice la ley",
+    "description": "Sí, fichar con geolocalización es legal si es proporcional, informada y limitada a la jornada. Te explicamos el art. 20.3 ET, el RGPD y si puedes negarte.",
+    "category": "Normativa",
+    "date": "18 Jun 2026",
+    "readTime": "7 min",
+    "gradient": "from-primary/30 to-primary/10",
+    "content": [
+      {
+        "type": "verdict",
+        "variant": "si",
+        "title": "Sí, pero con condiciones",
+        "text": "Sí: fichar con geolocalización es legal en España siempre que sea proporcional, el trabajador esté informado y se limite a la jornada y a la finalidad de control. Lo que NO se permite es el rastreo continuo ni fuera del horario laboral."
+      },
+      {
+        "type": "paragraph",
+        "text": "Es una de las dudas más frecuentes cuando una empresa decide digitalizar el control horario: ¿puedo saber **dónde** ficha mi equipo sin meterme en un problema legal? La respuesta corta es que sí, la geolocalización aplicada al fichaje es lícita, pero el matiz importa tanto como la respuesta. No es barra libre para vigilar al trabajador, y un uso desproporcionado puede acabar en una sanción de la Agencia Española de Protección de Datos (AEPD)."
+      },
+      {
+        "type": "paragraph",
+        "text": "En este artículo te explicamos qué dice exactamente la ley, los requisitos para que la geolocalización sea legal, qué prácticas están prohibidas y si un empleado puede negarse a que le localicen. Y, sobre todo, cómo plantearlo de forma que cumplas el [registro de jornada obligatorio](/blog/fichaje-digital-obligatorio-2026) sin pasarte de la raya."
+      },
+      {
+        "type": "h2",
+        "id": "es-legal",
+        "text": "¿Es legal fichar con geolocalización?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sí. La empresa puede usar la geolocalización como medida de control de la actividad laboral, incluido el fichaje, porque la propia ley reconoce al empleador la facultad de adoptar medidas de vigilancia y control para verificar el cumplimiento de las obligaciones laborales. La clave está en que el dato de localización es un **dato personal** y, por tanto, su tratamiento queda sujeto al Reglamento General de Protección de Datos (RGPD)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Esto significa que no basta con que la geolocalización sea \"útil\" para la empresa: tiene que superar un test de **necesidad y proporcionalidad**. Localizar a un comercial que visita clientes durante su jornada puede estar justificado; localizar a alguien que trabaja siempre en la misma oficina, probablemente no, porque hay medios menos invasivos para comprobar su presencia."
+      },
+      {
+        "type": "callout",
+        "variant": "clave",
+        "text": "La geolocalización para fichar es legal, pero se valora caso por caso. Cuanto menos invasiva sea la medida y más justificada esté para tu actividad, más sólida es legalmente."
+      },
+      {
+        "type": "h2",
+        "id": "que-dice-la-ley",
+        "text": "Qué dice la ley: art. 20.3 ET + RGPD"
+      },
+      {
+        "type": "paragraph",
+        "text": "Dos normas se combinan aquí. Por un lado, el **artículo 20.3 del Estatuto de los Trabajadores** habilita al empresario a \"adoptar las medidas que estime más oportunas de vigilancia y control para verificar el cumplimiento por el trabajador de sus obligaciones y deberes laborales\", siempre guardando la consideración debida a su dignidad."
+      },
+      {
+        "type": "paragraph",
+        "text": "Por otro, el **RGPD** y la Ley Orgánica 3/2018 de Protección de Datos (LOPDGDD) regulan cómo se puede tratar el dato de ubicación. De hecho, el **artículo 90 de la LOPDGDD** se ocupa específicamente de los sistemas de geolocalización en el ámbito laboral y obliga a informar de forma expresa, clara e inequívoca a los trabajadores —y a su representación legal— sobre la existencia y características de estos dispositivos."
+      },
+      {
+        "type": "list",
+        "items": [
+          "**Base jurídica:** suele apoyarse en la ejecución de la relación laboral y en la facultad de control del art. 20.3 ET (y, en su caso, en el interés legítimo de la empresa), **no en el consentimiento**, que en el ámbito laboral se considera \"débil\" por el desequilibrio entre las partes.",
+          "**Finalidad limitada:** los datos de ubicación solo pueden usarse para el control que justifica su recogida, no para otros fines.",
+          "**Transparencia obligatoria:** hay que informar previamente al trabajador y, cuando exista, a la representación legal de los trabajadores."
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "text": "El mismo principio de proporcionalidad que rige la geolocalización es el que hace que otros métodos, como la huella o el reconocimiento facial, estén hoy vetados como sistema habitual de fichaje. Lo vemos en la [guía sobre fichaje biométrico](/blog/fichaje-biometrico-huella-reconocimiento-facial)."
+      },
+      {
+        "type": "h2",
+        "id": "requisitos",
+        "text": "Requisitos para que sea lícita"
+      },
+      {
+        "type": "paragraph",
+        "text": "Para que la geolocalización al fichar sea legal y resista una inspección, debe cumplir estos requisitos de forma acumulativa:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "**Proporcionalidad:** la medida tiene que ser idónea, necesaria y equilibrada. Si existe una alternativa menos invasiva que cumpla la misma finalidad, hay que usarla.",
+          "**Información previa y transparente:** el trabajador debe saber, antes de empezar, que se va a registrar su ubicación, con qué finalidad, durante cuánto tiempo y quién accede al dato.",
+          "**Limitación a la jornada:** la localización solo puede activarse en el momento del fichaje o durante el tiempo de trabajo, nunca de forma permanente.",
+          "**Finalidad de control laboral:** el dato no puede reutilizarse para nada distinto (marketing, perfilado, evaluación personal, etc.).",
+          "**Minimización de datos:** registrar únicamente lo imprescindible. Un punto de ubicación al fichar es muy distinto de un seguimiento por GPS minuto a minuto.",
+          "**Seguridad y conservación adecuada:** los datos deben protegerse y conservarse solo el tiempo necesario para la finalidad del control horario."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "La diferencia entre una medida legal y una sancionable casi siempre se reduce a la misma pregunta: ¿es proporcional al fin que persigues, o estás vigilando más de lo que necesitas?"
+      },
+      {
+        "type": "h2",
+        "id": "que-no-se-puede",
+        "text": "Qué NO se puede hacer con la geolocalización"
+      },
+      {
+        "type": "paragraph",
+        "text": "Aquí está la línea roja. Que puedas geolocalizar al fichar no significa que puedas convertir el móvil del empleado en una pulsera de seguimiento. Estas prácticas son ilícitas y exponen a la empresa a sanciones:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "**Rastreo continuo durante toda la jornada** cuando no es estrictamente necesario para el puesto. Saber que alguien ha entrado a trabajar no requiere seguir su recorrido todo el día.",
+          "**Geolocalizar fuera del horario laboral**, en pausas, descansos o, evidentemente, cuando el trabajador ha terminado su jornada.",
+          "**Vigilar la vida privada**: deducir hábitos, desplazamientos personales o conductas ajenas al trabajo a partir de los datos de ubicación.",
+          "**Usar los datos para otros fines** distintos al control horario que se informó (por ejemplo, evaluaciones de desempeño encubiertas).",
+          "**No informar** o esconder que se está recogiendo la ubicación. La geolocalización oculta es directamente ilegal."
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "aviso",
+        "text": "El rastreo permanente y fuera de jornada es una de las infracciones que la AEPD sanciona con más dureza. La ubicación al fichar debe ser un dato puntual, no un seguimiento."
+      },
+      {
+        "type": "h2",
+        "id": "puede-negarse",
+        "text": "¿Puede el trabajador negarse a que le geolocalicen?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Es una pregunta con matices. Si la empresa ha implantado la geolocalización cumpliendo todos los requisitos —es proporcional, está justificada para el puesto y se ha informado correctamente—, el trabajador, en principio, no puede oponerse con éxito de forma genérica a una medida legítima de control, aunque sí conserva su derecho de oposición del art. 21 RGPD."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ahora bien, el empleado **sí conserva sus derechos**: puede ejercer el derecho de oposición y, sobre todo, puede negarse cuando la medida sea desproporcionada, no esté justificada o invada su esfera privada. Si la geolocalización no supera el test de proporcionalidad, la negativa del trabajador está amparada por la ley y la empresa no puede imponerla ni sancionarle por ello."
+      },
+      {
+        "type": "callout",
+        "variant": "clave",
+        "text": "Si la geolocalización es proporcional, justificada e informada, la oposición genérica tiene poco recorrido. Si es desproporcionada o invade la vida privada, la negativa del trabajador está amparada por la ley."
+      },
+      {
+        "type": "paragraph",
+        "text": "Por eso, en la práctica, la solución más segura y menos conflictiva es ofrecer un sistema de fichaje que **no dependa** de la geolocalización para funcionar, y reservar la ubicación solo para los casos en los que de verdad aporta valor."
+      },
+      {
+        "type": "h2",
+        "id": "fichar-sin-geolocalizacion",
+        "text": "Fichar sin geolocalización: una opción válida"
+      },
+      {
+        "type": "paragraph",
+        "text": "Mucha gente asume que un sistema de fichaje digital \"tiene que\" localizarte. No es cierto. La ley solo exige llevar un **registro fiable de la jornada** (hora de entrada, salida y pausas), no saber dónde está físicamente cada persona. La geolocalización es un complemento opcional, no un requisito del registro horario. Si quieres ver el contexto completo, te lo contamos en la [guía sobre el control horario digital obligatorio en 2026](/blog/control-horario-digital-obligatorio-2026)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Para la inmensa mayoría de pymes con empleados en oficina, tienda o taller, **fichar sin geolocalización** es perfectamente válido y evita de raíz cualquier debate sobre privacidad. Un empleado [ficha desde su móvil, tablet u ordenador](/blog/fichar-en-el-trabajo-guia-completa), queda registrado con hora exacta y listo. La ubicación solo cobra sentido cuando hay desplazamientos: comerciales, técnicos de campo, repartidores o equipos que rotan entre centros de trabajo."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tipo de empresa",
+          "¿Necesita geolocalización?",
+          "Recomendación"
+        ],
+        "rows": [
+          [
+            "Oficina / centro fijo",
+            "No",
+            "Fichaje sin ubicación: más simple y sin riesgos de privacidad"
+          ],
+          [
+            "Tienda o local comercial",
+            "No (o muy puntual)",
+            "Fichaje normal; ubicación solo si hay varios locales"
+          ],
+          [
+            "Comerciales / técnicos de campo",
+            "Sí, justificada",
+            "Geolocalización puntual al fichar, informada y proporcional"
+          ],
+          [
+            "Trabajo en cliente / multi-centro",
+            "Recomendable",
+            "Ubicación al fichar para verificar el centro, nunca rastreo continuo"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "id": "como-lo-hace-fichados",
+        "text": "Cómo lo hace Fichados"
+      },
+      {
+        "type": "paragraph",
+        "text": "En **Fichados** hemos diseñado el control horario pensando justo en este equilibrio: cumplir la ley sin invadir la privacidad de nadie. Por eso la geolocalización es **opcional** y, cuando se activa, funciona de la forma más respetuosa posible."
+      },
+      {
+        "type": "list",
+        "items": [
+          "**Opcional desde el primer día:** tú decides si la activas. Si tu equipo trabaja en un sitio fijo, puedes fichar sin geolocalización y no se registra ninguna ubicación.",
+          "**Puntual, no rastreo:** cuando está activada, solo se captura la ubicación **en el momento exacto del fichaje**. Fichados no sigue al empleado durante la jornada ni recoge datos fuera del horario.",
+          "**Transparente:** el trabajador sabe en todo momento cuándo se está registrando su ubicación, en línea con la transparencia que exige el RGPD.",
+          "**Funciona desde cualquier dispositivo:** móvil, tablet u ordenador, mediante el navegador, sin instalar nada raro ni terminales de hardware.",
+          "**Registros inalterables** y conservados más de 4 años, listos para una Inspección de Trabajo, con informes en PDF y Excel."
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "clave",
+        "text": "Nuestra filosofía es sencilla: la ubicación solo se usa cuando aporta valor y siempre de forma puntual e informada. El registro de jornada cumple la ley; el rastreo de personas no es parte del trato."
+      },
+      {
+        "type": "cta",
+        "text": "Empieza a registrar la jornada de tu equipo de forma legal y respetuosa, con geolocalización opcional y sin permanencia. Prueba Fichados y monta tu control horario en minutos."
+      }
+    ],
+    "tableOfContents": [
+      {
+        "id": "es-legal",
+        "title": "¿Es legal fichar con geolocalización?"
+      },
+      {
+        "id": "que-dice-la-ley",
+        "title": "Qué dice la ley: art. 20.3 ET + RGPD"
+      },
+      {
+        "id": "requisitos",
+        "title": "Requisitos para que sea lícita"
+      },
+      {
+        "id": "que-no-se-puede",
+        "title": "Qué NO se puede hacer con la geolocalización"
+      },
+      {
+        "id": "puede-negarse",
+        "title": "¿Puede el trabajador negarse a que le geolocalicen?"
+      },
+      {
+        "id": "fichar-sin-geolocalizacion",
+        "title": "Fichar sin geolocalización: una opción válida"
+      },
+      {
+        "id": "como-lo-hace-fichados",
+        "title": "Cómo lo hace Fichados"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "¿Es legal que mi empresa me geolocalice para fichar?",
+        "answer": "Sí, es legal siempre que sea proporcional al puesto, te hayan informado previamente y se limite a la jornada y a la finalidad de control horario. Lo que no es legal es el rastreo continuo, la geolocalización fuera del horario laboral o hacerlo sin informarte. Si la medida es desproporcionada, puedes oponerte."
+      },
+      {
+        "question": "¿Puede la empresa seguir mi ubicación todo el día?",
+        "answer": "No. La geolocalización debe limitarse al momento del fichaje o al tiempo estrictamente necesario para el control de la jornada. El seguimiento continuo durante todo el día, en pausas o fuera del horario laboral es desproporcionado y la AEPD lo considera una infracción sancionable."
+      },
+      {
+        "question": "¿Puedo negarme a que me geolocalicen en el trabajo?",
+        "answer": "Si la medida es proporcional, está justificada para tu puesto y te han informado correctamente, la oposición genérica tiene poco recorrido, aunque conservas tu derecho de oposición del art. 21 RGPD. En cambio, sí puedes negarte con fundamento si la geolocalización es desproporcionada, no está justificada o invade tu vida privada: en ese caso tu negativa está amparada por la ley."
+      },
+      {
+        "question": "¿Es obligatorio usar geolocalización para cumplir el registro de jornada?",
+        "answer": "No. La ley solo exige llevar un registro fiable de la entrada, salida y pausas de cada empleado, no conocer su ubicación. Fichar sin geolocalización es perfectamente válido y, de hecho, es lo más recomendable para empresas con empleados en un centro de trabajo fijo."
+      },
+      {
+        "question": "¿Cómo gestiona la geolocalización Fichados?",
+        "answer": "En Fichados la geolocalización es opcional. Si la activas, solo se captura la ubicación en el momento exacto del fichaje, nunca hay rastreo continuo ni recogida de datos fuera de la jornada, y el trabajador siempre sabe cuándo se registra su ubicación. Puedes usar Fichados sin geolocalización si tu equipo trabaja en un sitio fijo."
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "slug": "fichaje-biometrico-huella-reconocimiento-facial",
+    "title": "¿Es legal fichar con huella o reconocimiento facial? (2026)",
+    "description": "¿Es legal fichar con huella o reconocimiento facial? Tras la guía de la AEPD de 2023, no como método ordinario. Te explicamos por qué y la alternativa legal.",
+    "category": "Normativa",
+    "date": "18 Jun 2026",
+    "readTime": "7 min",
+    "gradient": "from-primary/30 to-primary/10",
+    "content": [
+      {
+        "type": "verdict",
+        "variant": "no",
+        "title": "No, salvo casos muy excepcionales",
+        "text": "No como método ordinario de fichaje. Tras la guía de la AEPD de noviembre de 2023, los datos biométricos (huella o cara) para control de jornada son **categoría especial**: el consentimiento del trabajador no los legitima y solo se permiten si una **norma con rango de ley** lo autoriza y superan los test de necesidad y proporcionalidad. En la práctica, hoy están vetados como sistema habitual."
+      },
+      {
+        "type": "callout",
+        "variant": "aviso",
+        "title": "La posición de la AEPD (2023)",
+        "text": "La Agencia Española de Protección de Datos considera que fichar con huella o reconocimiento facial implica tratar datos biométricos de **categoría especial** (art. 9 RGPD). El **consentimiento no es base válida** en el trabajo por el desequilibrio entre empresa y empleado, así que no basta con que el trabajador \"acepte\"."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Respuesta directa: no, salvo casos muy excepcionales.** Desde la guía de la AEPD de noviembre de 2023, fichar con **huella dactilar** o **reconocimiento facial** está vetado como método ordinario de control horario. El consentimiento del trabajador no basta: haría falta una norma con rango de ley que lo autorice, algo que hoy no existe para el fichaje común."
+      },
+      {
+        "type": "paragraph",
+        "text": "Durante años, muchas empresas instalaron terminales de huella o de reconocimiento facial para fichar, convencidas de que pidiendo permiso al empleado quedaban cubiertas. **En 2026 esa creencia es un error caro.** La Agencia Española de Protección de Datos (AEPD) cerró la puerta a este uso en su guía de noviembre de 2023, y conviene entender bien por qué antes de comprar un solo lector de huellas."
+      },
+      {
+        "type": "paragraph",
+        "text": "En este artículo te explicamos, con rigor y sin medias verdades, qué dice la normativa sobre la biometría para control de jornada, qué riesgo asumes si la usas y cuál es la alternativa que sí cumple la ley."
+      },
+      {
+        "type": "h2",
+        "id": "es-legal-huella",
+        "text": "¿Es legal fichar con huella dactilar?"
+      },
+      {
+        "type": "paragraph",
+        "text": "No, no como sistema habitual de fichaje. La huella dactilar es un **dato biométrico** y, cuando se usa para identificar de forma unívoca a una persona, el RGPD lo trata como **dato de categoría especial** (artículo 9). Estos datos tienen una protección reforzada y su tratamiento está, de partida, **prohibido**, salvo que se cumpla alguna de las excepciones tasadas de la ley."
+      },
+      {
+        "type": "paragraph",
+        "text": "El problema es que, para fichar, ninguna de esas excepciones encaja. La que las empresas suelen invocar —el **consentimiento del trabajador**— no sirve en el contexto laboral, y ahora veremos por qué. Sin una base válida, instalar un lector de huellas para el control horario es un tratamiento ilícito."
+      },
+      {
+        "type": "quote",
+        "text": "Dato clave: la huella no es \"ilegal\" en abstracto (puede usarse, por ejemplo, para acceder a una zona de alta seguridad con una justificación sólida y una habilitación legal). Lo que está vetado es usarla como método ordinario para registrar la jornada de toda la plantilla."
+      },
+      {
+        "type": "h2",
+        "id": "reconocimiento-facial",
+        "text": "¿Y el reconocimiento facial?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Exactamente lo mismo. El **reconocimiento facial** procesa rasgos del rostro para identificarte de forma única, así que también es un dato biométrico de categoría especial. El razonamiento jurídico es idéntico al de la huella: tratamiento prohibido por defecto, el consentimiento no levanta la prohibición y no hay una ley que autorice fichar la cara de los empleados."
+      },
+      {
+        "type": "paragraph",
+        "text": "Da igual que el sistema sea \"sin contacto\", que prometa más higiene o que la captura facial dure un segundo. **El método sigue siendo desproporcionado** para una finalidad —saber a qué hora entras y sales— que se puede cumplir con medios mucho menos invasivos. No es casualidad que algunos proveedores titulen su contenido directamente como \"prohibido fichar con huella dactilar\": refleja bien hasta qué punto ha cambiado el criterio."
+      },
+      {
+        "type": "quote",
+        "text": "El consentimiento no puede ser la base legal para tratar datos biométricos de los trabajadores: en la relación laboral no es libre, porque hay desequilibrio entre empresa y empleado."
+      },
+      {
+        "type": "h2",
+        "id": "por-que-categoria-especial",
+        "text": "Por qué la biometría es \"categoría especial\""
+      },
+      {
+        "type": "paragraph",
+        "text": "La clave está en el **artículo 9 del RGPD**. Los datos biométricos destinados a identificar de manera unívoca a una persona se consideran una categoría especialmente sensible, junto a los datos de salud, origen racial o afiliación sindical. Su tratamiento parte de una **prohibición general**, y solo se puede levantar si concurre alguna excepción muy concreta."
+      },
+      {
+        "type": "paragraph",
+        "text": "Hay tres motivos por los que, para el fichaje, esa prohibición no se levanta:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "**El consentimiento no es válido.** El RGPD exige que el consentimiento sea libre. La AEPD entiende que, en la relación laboral, el trabajador no está en posición de negarse de verdad (hay un desequilibrio de poder). Por eso el \"sí\" del empleado no es una base legal sólida.",
+          "**Falta una norma con rango de ley.** Para tratar datos biométricos de la plantilla haría falta una ley que lo habilite expresamente y que, además, supere los test de **necesidad y proporcionalidad**. Hoy esa norma específica para el fichaje no existe en España.",
+          "**Hay alternativas menos invasivas.** Si puedes cumplir el control horario con un PIN, una tarjeta o el móvil, capturar la huella o la cara no supera el principio de proporcionalidad. La biometría debe ser el último recurso, no el primero."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "En resumen: la biometría para fichar choca de frente con tres principios del RGPD a la vez —licitud, minimización y proporcionalidad—. Es difícil que cualquier empresa lo justifique para algo tan cotidiano como registrar la jornada."
+      },
+      {
+        "type": "h2",
+        "id": "que-paso-2023",
+        "text": "Qué cambió con la guía de la AEPD de 2023"
+      },
+      {
+        "type": "paragraph",
+        "text": "En **noviembre de 2023**, la AEPD publicó una guía sobre tratamientos de control de presencia mediante sistemas biométricos que endureció de forma notable su postura. Hasta entonces existía cierta zona gris; a partir de ese documento, el criterio quedó mucho más claro."
+      },
+      {
+        "type": "paragraph",
+        "text": "La guía sostiene que el uso de biometría para control de presencia y de jornada implica tratar datos de categoría especial del artículo 9, que **el consentimiento no es base habilitante** en este contexto y que, sin una norma con rango de ley que lo autorice y supere el juicio de proporcionalidad, **el tratamiento no está permitido**. En la práctica, esto deja fuera de juego los terminales de huella y de reconocimiento facial como método por defecto para fichar."
+      },
+      {
+        "type": "quote",
+        "text": "Posición de la AEPD (guía de noviembre de 2023): los datos biométricos para control de presencia son de categoría especial (art. 9 RGPD); el consentimiento del trabajador no sirve como base legal; se exige una norma con rango de ley que lo habilite y supere los test de necesidad y proporcionalidad. Hoy, en la práctica, la huella y el reconocimiento facial no están permitidos como método ordinario de fichaje."
+      },
+      {
+        "type": "paragraph",
+        "text": "Por eso, si todavía tienes un lector biométrico funcionando, lo prudente no es \"esperar a ver\": es migrar a un sistema conforme cuanto antes."
+      },
+      {
+        "type": "h2",
+        "id": "sanciones-riesgo",
+        "text": "Sanciones y riesgo real para tu empresa"
+      },
+      {
+        "type": "paragraph",
+        "text": "Tratar datos biométricos sin base legal es una infracción del RGPD, y las del **artículo 9** están entre las más graves. El marco sancionador contempla multas de hasta **20 millones de euros o el 4% de la facturación anual global**, la cifra que sea mayor. Para una pyme, claro, las sanciones reales son muy inferiores, pero pueden alcanzar varias decenas de miles de euros."
+      },
+      {
+        "type": "paragraph",
+        "text": "Y el riesgo no es solo teórico:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "**Una sola denuncia basta.** Un empleado descontento, un excompañero o un comité de empresa pueden poner el caso en conocimiento de la AEPD.",
+          "**El coste oculto del hardware.** Si tienes que retirar los terminales biométricos y migrar deprisa, sumas el dinero ya invertido en lectores que no podrás usar.",
+          "**Daño reputacional.** Aparecer en una resolución sancionadora por tratar mal los datos de tu propia plantilla no ayuda a tu marca como empleador."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "La buena noticia es que evitar todo esto es sencillo y barato: basta con elegir un método de fichaje que no toque datos biométricos."
+      },
+      {
+        "type": "h2",
+        "id": "alternativa-legal",
+        "text": "La alternativa legal: fichar desde el móvil"
+      },
+      {
+        "type": "paragraph",
+        "text": "La forma más segura y conforme de cumplir con el [registro horario obligatorio](/blog/control-horario-digital-obligatorio-2026) es un sistema de fichaje **desde el móvil, la tablet o el navegador**, sin huella ni cara. Cada empleado se identifica con su usuario y contraseña, ficha su entrada, salida y pausas, y la empresa obtiene un registro inalterable y exportable para la Inspección de Trabajo."
+      },
+      {
+        "type": "paragraph",
+        "text": "Esto es justo lo que hace **Fichados**: no usa ningún dato biométrico. La identificación se basa en credenciales, no en tu cuerpo, así que evitas de raíz el problema del artículo 9. Y si tu actividad requiere comprobar que el empleado ficha desde el centro de trabajo, puedes activar la **geolocalización opcional**, que es lícita siempre que sea proporcional, informada y limitada a la jornada. Te contamos [cómo funciona la geolocalización al fichar](/blog/fichados-geolocalizacion-fichajes) en el blog de Fichados."
+      },
+      {
+        "type": "paragraph",
+        "text": "Para que lo tengas de un vistazo, este es el veredicto legal de cada método de fichaje:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "**Huella dactilar.** Dato biométrico de categoría especial (art. 9 RGPD). No permitido como método ordinario tras la guía de la AEPD de 2023.",
+          "**Reconocimiento facial.** Igualmente dato biométrico de categoría especial (art. 9 RGPD). No permitido como método ordinario tras la guía de la AEPD de 2023.",
+          "**Móvil o navegador con usuario y contraseña.** No trata datos biométricos. Legal y suficiente como método ordinario de fichaje.",
+          "**Geolocalización opcional al fichar.** Es un dato de ubicación, no biométrico. Lícita con condiciones: proporcional, informada, limitada a la jornada y sin rastreo continuo fuera del horario."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "Resumen práctico: si quieres cumplir sin sustos, olvídate de la huella y la cara. Un fichaje basado en credenciales desde el móvil o el navegador es legal, suficiente y mucho más cómodo de desplegar en toda la plantilla."
+      },
+      {
+        "type": "paragraph",
+        "text": "Además, un sistema digital te resuelve de paso el resto de obligaciones: panel en tiempo real, control de ausencias y vacaciones, informes en PDF y Excel para una inspección y conservación de los registros durante más de cuatro años. Todo lo que pide la ley, sin tocar datos sensibles."
+      },
+      {
+        "type": "cta",
+        "text": "Cumple con el registro horario sin riesgos legales ni terminales biométricos. Prueba Fichados gratis y empieza a fichar desde el móvil en cinco minutos."
+      },
+      {
+        "type": "h2",
+        "id": "preguntas-frecuentes",
+        "text": "Preguntas frecuentes"
+      },
+      {
+        "type": "h3",
+        "id": "faq-huella-legal",
+        "text": "¿Es legal fichar con huella dactilar en España en 2026?"
+      },
+      {
+        "type": "paragraph",
+        "text": "No como método ordinario de control horario. La huella es un dato biométrico de categoría especial (art. 9 RGPD) y, tras la guía de la AEPD de noviembre de 2023, el consentimiento del trabajador no basta como base legal. Sin una norma con rango de ley que lo autorice y supere los test de necesidad y proporcionalidad, instalar un lector de huellas para fichar es un tratamiento ilícito."
+      },
+      {
+        "type": "h3",
+        "id": "faq-facial-legal",
+        "text": "¿Y el reconocimiento facial para fichar es legal?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Tampoco. El reconocimiento facial es igualmente un dato biométrico de categoría especial, así que se le aplica el mismo razonamiento que a la huella: tratamiento prohibido por defecto, consentimiento inválido en el contexto laboral y ausencia de una ley que lo habilite. No es un método legal de fichaje por defecto."
+      },
+      {
+        "type": "h3",
+        "id": "faq-consentimiento",
+        "text": "¿No vale el consentimiento del trabajador para usar biometría?"
+      },
+      {
+        "type": "paragraph",
+        "text": "No. El RGPD exige que el consentimiento sea libre, y la AEPD entiende que en la relación laboral no lo es, porque existe un desequilibrio de poder entre empresa y empleado. Por eso el consentimiento no levanta la prohibición del artículo 9 para tratar datos biométricos en el control de jornada."
+      },
+      {
+        "type": "h3",
+        "id": "faq-sancion",
+        "text": "¿Qué sanción puedo recibir por fichar con biometría sin base legal?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Las infracciones relacionadas con datos de categoría especial (art. 9) están entre las más graves del RGPD, con multas de hasta 20 millones de euros o el 4% de la facturación anual global. Para una pyme las cuantías reales son menores, pero pueden alcanzar decenas de miles de euros, además del coste de retirar el hardware y del daño reputacional."
+      },
+      {
+        "type": "h3",
+        "id": "faq-alternativa",
+        "text": "¿Cuál es la alternativa legal a la huella y la cara?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Un sistema de fichaje desde el móvil, la tablet o el navegador con identificación por usuario y contraseña, como Fichados, que no trata ningún dato biométrico. Si necesitas verificar que el empleado ficha en el centro de trabajo, puedes activar la geolocalización opcional, que es lícita siempre que sea proporcional, esté informada y se limite a la jornada."
+      }
+    ],
+    "tableOfContents": [
+      {
+        "id": "es-legal-huella",
+        "title": "¿Es legal fichar con huella dactilar?"
+      },
+      {
+        "id": "reconocimiento-facial",
+        "title": "¿Y el reconocimiento facial?"
+      },
+      {
+        "id": "por-que-categoria-especial",
+        "title": "Por qué la biometría es \"categoría especial\""
+      },
+      {
+        "id": "que-paso-2023",
+        "title": "Qué cambió con la guía de la AEPD de 2023"
+      },
+      {
+        "id": "sanciones-riesgo",
+        "title": "Sanciones y riesgo real para tu empresa"
+      },
+      {
+        "id": "alternativa-legal",
+        "title": "La alternativa legal: fichar desde el móvil"
+      },
+      {
+        "id": "preguntas-frecuentes",
+        "title": "Preguntas frecuentes"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "¿Es legal fichar con huella dactilar en España en 2026?",
+        "answer": "No como método ordinario de control horario. La huella es un dato biométrico de categoría especial (art. 9 RGPD) y, tras la guía de la AEPD de noviembre de 2023, el consentimiento del trabajador no basta como base legal. Sin una norma con rango de ley que lo autorice y supere los test de necesidad y proporcionalidad, instalar un lector de huellas para fichar es un tratamiento ilícito."
+      },
+      {
+        "question": "¿Y el reconocimiento facial para fichar es legal?",
+        "answer": "Tampoco. El reconocimiento facial es igualmente un dato biométrico de categoría especial, así que se le aplica el mismo razonamiento que a la huella: tratamiento prohibido por defecto, consentimiento inválido en el contexto laboral y ausencia de una ley que lo habilite. No es un método legal de fichaje por defecto."
+      },
+      {
+        "question": "¿No vale el consentimiento del trabajador para usar biometría?",
+        "answer": "No. El RGPD exige que el consentimiento sea libre, y la AEPD entiende que en la relación laboral no lo es, porque existe un desequilibrio de poder entre empresa y empleado. Por eso el consentimiento no levanta la prohibición del artículo 9 para tratar datos biométricos en el control de jornada."
+      },
+      {
+        "question": "¿Qué sanción puedo recibir por fichar con biometría sin base legal?",
+        "answer": "Las infracciones relacionadas con datos de categoría especial (art. 9) están entre las más graves del RGPD, con multas de hasta 20 millones de euros o el 4% de la facturación anual global. Para una pyme las cuantías reales son menores, pero pueden alcanzar decenas de miles de euros, además del coste de retirar el hardware y del daño reputacional."
+      },
+      {
+        "question": "¿Cuál es la alternativa legal a la huella y la cara?",
+        "answer": "Un sistema de fichaje desde el móvil, la tablet o el navegador con identificación por usuario y contraseña, como Fichados, que no trata ningún dato biométrico. Si necesitas verificar que el empleado ficha en el centro de trabajo, puedes activar la geolocalización opcional, que es lícita siempre que sea proporcional, esté informada y se limite a la jornada."
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "slug": "sistemas-de-control-horario",
+    "title": "Sistemas de control horario: tipos y cuál elegir en 2026",
+    "description": "Comparamos 5 sistemas de control horario (papel, Excel, RFID, biométrico y app) por coste, legalidad RGPD y fiabilidad ante Inspección. Elige el tuyo.",
+    "category": "Guías",
+    "date": "18 Jun 2026",
+    "readTime": "8 min",
+    "gradient": "from-[hsl(142,71%,45%)]/30 to-[hsl(142,71%,45%)]/10",
+    "content": [
+      {
+        "type": "verdict",
+        "variant": "depende",
+        "title": "Depende, pero hay un claro favorito",
+        "text": "No todos los sistemas de control horario valen lo mismo ante una Inspección. Hoy el más seguro, barato y cómodo es el **digital (app o navegador)**: deja un registro inalterable, accesible y conservado más de 4 años sin papeleo ni hardware caro."
+      },
+      {
+        "type": "paragraph",
+        "text": "Elegir un **sistema de control horario** ya no es opcional: desde 2019 toda empresa en España está **obligada a registrar la jornada** de sus empleados (art. 34.9 del Estatuto de los Trabajadores). La pregunta ya no es *si* hay que fichar, sino *con qué sistema* hacerlo. Y aquí hay diferencias enormes: un cuaderno de papel y una app en el móvil cumplen la misma ley, pero te exponen a riesgos muy distintos cuando llama a la puerta la Inspección de Trabajo."
+      },
+      {
+        "type": "paragraph",
+        "text": "En esta guía comparamos los **cinco sistemas de control horario** (o sistemas de fichaje) más habituales por coste, fiabilidad, legalidad y comodidad, para que elijas con criterio según el tamaño de tu plantilla. Si lo que buscas es el detalle de cómo se ficha y qué dice la norma, tienes la [guía completa para fichar en el trabajo](/blog/fichar-en-el-trabajo-guia-completa)."
+      },
+      {
+        "type": "h2",
+        "id": "que-exige-la-ley",
+        "text": "Qué le exige la ley a un sistema de control horario"
+      },
+      {
+        "type": "paragraph",
+        "text": "Antes de comparar, conviene saber qué tiene que cumplir cualquier sistema de fichaje para ser válido. La normativa (art. 34.9 ET y el RDL 8/2019) y los criterios de la Inspección marcan tres requisitos clave:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "**Registro fiable e inalterable**: el sistema debe reflejar la jornada real, sin que pueda modificarse a posteriori sin dejar rastro. Un Excel que cualquiera puede reescribir cojea aquí.",
+          "**Conservación durante 4 años**: los registros deben guardarse y estar disponibles durante al menos cuatro años para empleados, sus representantes y la Inspección.",
+          "**Accesible y exportable**: debes poder mostrar los registros en cualquier momento, idealmente exportados en un formato claro (PDF o Excel) que la Inspección pueda revisar sin fricción."
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "clave",
+        "text": "La clave no es solo *tener* un sistema, sino que sea **inalterable y conservable**. Un registro que se puede manipular o que se pierde tras unos meses no te protege: ante la Inspección equivale a no tener nada, con sanciones de **1.251 a 6.250 €** por infracción grave (LISOS). Lo detallamos en la guía de [sanciones por no fichar](/blog/sanciones-no-fichar-multas)."
+      },
+      {
+        "type": "h2",
+        "id": "tipos-de-sistemas",
+        "text": "Los 5 tipos de sistema de fichaje"
+      },
+      {
+        "type": "paragraph",
+        "text": "En la práctica, las empresas españolas usan cinco grandes familias de sistema de fichaje para trabajadores. Estos son, de más rudimentario a más moderno:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "**Papel o firma**: una hoja o cuaderno donde cada empleado anota entrada y salida a mano.",
+          "**Excel o plantilla digital**: una hoja de cálculo compartida donde se registran los horarios.",
+          "**Tarjeta o RFID**: tarjetas de proximidad que se pasan por un lector físico en la entrada.",
+          "**Biométrico (huella o reconocimiento facial)**: un terminal lee la huella o la cara del empleado.",
+          "**App o navegador**: el trabajador ficha desde su móvil, tablet u ordenador, con geolocalización opcional."
+        ]
+      },
+      {
+        "type": "h2",
+        "id": "tabla-comparativa",
+        "text": "Tabla comparativa de un vistazo"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Sistema",
+          "Coste",
+          "Fiabilidad ante Inspección",
+          "Legalidad / RGPD",
+          "Comodidad"
+        ],
+        "rows": [
+          [
+            "Papel / firma",
+            "Muy bajo",
+            "Baja: se pierde, se rellena a posteriori, ilegible",
+            "Correcta, sin datos sensibles",
+            "Baja: archivar y buscar a mano"
+          ],
+          [
+            "Excel / plantilla",
+            "Muy bajo",
+            "Baja-media: alterable, sin trazabilidad",
+            "Correcta",
+            "Media: depende de la disciplina"
+          ],
+          [
+            "Tarjeta / RFID",
+            "Medio-alto (hardware)",
+            "Media-alta: fiable si se mantiene",
+            "Correcta, datos de presencia",
+            "Media: hay que estar en la oficina"
+          ],
+          [
+            "Biométrico (huella/facial)",
+            "Alto (hardware)",
+            "Alta técnica, pero ver Legalidad",
+            "Muy restringida (AEPD 2023)",
+            "Media: requiere terminal físico"
+          ],
+          [
+            "App / navegador",
+            "Bajo (desde 9 €/mes)",
+            "Alta: inalterable, +4 años, exportable",
+            "Correcta, geolocalización opcional informada",
+            "Alta: ficha desde cualquier dispositivo"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "id": "papel-y-excel",
+        "text": "Papel y Excel: baratos pero frágiles"
+      },
+      {
+        "type": "paragraph",
+        "text": "Son la opción de coste casi cero, y por eso muchas micropymes empiezan así. El problema es que son **los sistemas más frágiles ante una inspección**. Una hoja de papel se traspapela, se moja, se rellena el viernes de golpe (algo que la Inspección detecta enseguida) o se vuelve ilegible. Y un Excel es, por definición, alterable: cualquiera puede cambiar una hora sin que quede rastro, lo que choca de frente con el requisito de inalterabilidad. Si te estás planteando justo este salto, te interesa el [duelo Fichados vs Excel](/blog/fichados-vs-excel-comparativa)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Si aun así quieres arrancar con algo sencillo y gratuito mientras decides, puedes descargar nuestra [plantilla de control horario](/recursos/plantilla-control-horario) lista para usar. Eso sí, considérala un punto de partida, no una solución definitiva: en cuanto tengas varios empleados, la fragilidad del papel y el Excel se nota, y conviene dar el salto a un sistema digital inalterable."
+      },
+      {
+        "type": "h2",
+        "id": "tarjeta-y-biometrico",
+        "text": "Tarjeta RFID y biométrico: hardware y riesgos"
+      },
+      {
+        "type": "paragraph",
+        "text": "Las **tarjetas RFID** son fiables y dejan un registro digital decente, pero arrastran dos pegas: requieren comprar e instalar lectores físicos (coste de hardware y mantenimiento) y obligan a estar físicamente en la oficina, así que no sirven para teletrabajo, comerciales o personal en movimiento. Además, las tarjetas se prestan, se pierden y se olvidan."
+      },
+      {
+        "type": "paragraph",
+        "text": "El **biométrico** (huella dactilar o reconocimiento facial) parece la opción más moderna y a prueba de trampas, pero aquí hay un problema legal serio que muchas empresas desconocen."
+      },
+      {
+        "type": "callout",
+        "variant": "aviso",
+        "text": "**La biometría para fichar está muy restringida.** La guía de la AEPD de noviembre de 2023 considera los datos biométricos para control de presencia un tratamiento de categoría especial (art. 9 RGPD). El consentimiento del trabajador **no sirve como base legal** (hay desequilibrio en la relación laboral) y se exige una norma con rango de ley que lo autorice. En la práctica, hoy **no está permitido como método ordinario de fichaje**."
+      },
+      {
+        "type": "paragraph",
+        "text": "Dicho de otro modo: instalar un terminal de huella o facial como sistema por defecto para fichar te coloca en una situación de alto riesgo sancionador, no de cumplimiento. Lo explicamos a fondo en nuestra guía sobre el [fichaje biométrico con huella o reconocimiento facial](/blog/fichaje-biometrico-huella-reconocimiento-facial)."
+      },
+      {
+        "type": "h2",
+        "id": "app-navegador",
+        "text": "App o navegador: el estándar de 2026"
+      },
+      {
+        "type": "paragraph",
+        "text": "El fichaje digital desde **móvil, tablet u ordenador** se ha convertido en el estándar por una razón sencilla: cumple los tres requisitos legales sin esfuerzo y sin hardware. El registro es **inalterable**, se conserva automáticamente **más de 4 años** y se **exporta en PDF o Excel** para la Inspección con un clic. Y como funciona en cualquier dispositivo con navegador, vale igual para una oficina, una tienda, un equipo de comerciales o teletrabajo."
+      },
+      {
+        "type": "paragraph",
+        "text": "Frente al biométrico, el digital tiene otra ventaja decisiva: **no usa datos biométricos**, así que esquiva por completo el problema del art. 9 RGPD. Si necesitas verificar dónde ficha cada empleado, puedes activar la **geolocalización opcional**, que es lícita siempre que sea proporcional, esté informada y se limite a la jornada (sin rastreo continuo ni fuera del horario). Es decir: consigues control sin entrar en la zona vetada por la AEPD. Tienes el detalle en [¿es legal fichar con geolocalización?](/blog/es-legal-fichar-con-geolocalizacion)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Esta es exactamente la propuesta de [Fichados](/blog/fichaje-digital-obligatorio-2026): fichaje desde cualquier dispositivo, panel en tiempo real, gestión de ausencias y vacaciones, informes listos para Inspección y registros inalterables conservados más de 4 años, desde 9 €/mes."
+      },
+      {
+        "type": "h2",
+        "id": "cual-elegir",
+        "text": "Cuál elegir según el tamaño de tu empresa"
+      },
+      {
+        "type": "paragraph",
+        "text": "No hay una única respuesta correcta, pero sí una recomendación clara por perfil:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "**Autónomo con 1-3 empleados**: olvídate del papel. Una app de fichaje desde el móvil te cuesta menos que un café al día y te quita el riesgo de un registro frágil.",
+          "**Pyme de 5-50 empleados**: el sistema digital es el más rentable. Centralizas toda la plantilla en un panel, exportas informes en segundos y olvidas el archivo en papel y los Excel descontrolados.",
+          "**Equipos en movimiento o teletrabajo**: solo el fichaje por app o navegador (con geolocalización opcional) cubre a quien no está en una oficina fija. Tarjeta y biométrico se quedan cortos.",
+          "**Empresa que sopesa biométrico**: descártalo como método por defecto hasta que cambie el marco legal. El riesgo sancionador del art. 9 RGPD no compensa."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Antes de decidir, conviene que sepas cuántas horas registras de verdad cada mes y si cuadran con la jornada pactada. Para eso te puede ayudar nuestra [calculadora de horas y minutos](/herramientas/calculadora-horas-minutos), que suma jornadas y pausas sin que tengas que pelearte con fórmulas."
+      },
+      {
+        "type": "quote",
+        "text": "Cualquier sistema cumple la ley sobre el papel. Pocos te protegen de verdad cuando la Inspección pide ver cuatro años de registros en cinco minutos."
+      },
+      {
+        "type": "cta",
+        "text": "Pásate al fichaje digital sin permanencia y deja de preocuparte por el papel, los Excel o el riesgo del biométrico. Registros inalterables, informes para Inspección y geolocalización opcional, desde 9 €/mes. Prueba Fichados con tu equipo hoy mismo."
+      }
+    ],
+    "tableOfContents": [
+      {
+        "id": "que-exige-la-ley",
+        "title": "Qué le exige la ley a un sistema de control horario"
+      },
+      {
+        "id": "tipos-de-sistemas",
+        "title": "Los 5 tipos de sistema de fichaje"
+      },
+      {
+        "id": "tabla-comparativa",
+        "title": "Tabla comparativa de un vistazo"
+      },
+      {
+        "id": "papel-y-excel",
+        "title": "Papel y Excel: baratos pero frágiles"
+      },
+      {
+        "id": "tarjeta-y-biometrico",
+        "title": "Tarjeta RFID y biométrico: hardware y riesgos"
+      },
+      {
+        "id": "app-navegador",
+        "title": "App o navegador: el estándar de 2026"
+      },
+      {
+        "id": "cual-elegir",
+        "title": "Cuál elegir según el tamaño de tu empresa"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "¿Cuál es el mejor sistema de control horario para una pyme?",
+        "answer": "Para la mayoría de pymes (5-50 empleados), el sistema digital por app o navegador es el más recomendable. Cumple los tres requisitos legales (inalterabilidad, conservación de 4 años y accesibilidad), no requiere comprar hardware, funciona en cualquier dispositivo y cuesta desde 9 €/mes. Además, evita el riesgo legal del fichaje biométrico."
+      },
+      {
+        "question": "¿Es legal fichar con huella dactilar o reconocimiento facial?",
+        "answer": "Está muy restringido. Según la guía de la AEPD de noviembre de 2023, los datos biométricos para control de presencia son una categoría especial (art. 9 RGPD). El consentimiento del trabajador no es base legal válida por el desequilibrio de la relación laboral, y se exige una norma con rango de ley que lo autorice. En la práctica, hoy no está permitido como método ordinario de fichaje."
+      },
+      {
+        "question": "¿Vale registrar la jornada en un Excel o en papel?",
+        "answer": "Legalmente cumplen, pero son los sistemas más frágiles. El papel se pierde, se vuelve ilegible o se rellena a posteriori, y un Excel es alterable sin dejar rastro, lo que choca con el requisito de inalterabilidad. Ante una inspección rigurosa son los sistemas que más fácilmente se cuestionan. Sirven para empezar, no como solución definitiva."
+      },
+      {
+        "question": "¿Qué requisitos debe cumplir un sistema de control horario para ser válido?",
+        "answer": "Debe registrar la jornada de forma fiable e inalterable, conservar los registros durante al menos 4 años, y mantenerlos accesibles y exportables para empleados, sus representantes y la Inspección de Trabajo. Un sistema digital cumple los tres automáticamente; el papel y el Excel cumplen sobre el papel pero fallan en inalterabilidad y conservación."
+      },
+      {
+        "question": "¿Puedo usar la geolocalización para controlar dónde ficha mi equipo?",
+        "answer": "Sí, es lícita con condiciones. El art. 20.3 ET y el RGPD permiten la geolocalización para fichar siempre que sea proporcional, esté informada (transparencia con el trabajador) y se limite a la jornada y a la finalidad de control, sin rastreo continuo ni fuera del horario. En Fichados es una función opcional que puedes activar o no."
       }
     ]
   },
